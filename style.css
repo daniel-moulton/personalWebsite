@@ -1,3 +1,7 @@
+body {
+    background-color: #c8b7a6;
+}
+
 .overlay {
     /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 100%;
@@ -14,7 +18,7 @@
     /* Black w/opacity */
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    transition: 0.5s;
+    transition: 0.25s;
     /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
