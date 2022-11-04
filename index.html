@@ -7,34 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Moulton</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="script" href="index.js">
 </head>
 
 <body>
-    <script>
-        $(document).ready(function() {
-            $('.menu').click(function() {
-                $('.links').toggleClass('active');
-            });
-        });
-    </script>
-    <div class="menu"></div>
-    <a><i class="fa fa-bars"></i></a>
-    <div>
-        <div class="links">
-            <ul>
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
+    <!-- Menu Overlay -->
+    <div id="navbar" class="overlay">
+
+        <!-- Close button for overlay -->
+        <a href="" javascript:void(0) " class="closebtn " 
+        onclick="closeNav() ">&times;</a>
+
+        <!-- Menu content -->
+        <div class="links ">
+            <a class="active " href="index.html ">Home</a>
+            <a href="about.html ">About</a>
+            <a href="contact.html ">Contact</a>
+            <a href="projects.html ">Projects</a>
         </div>
-        <br>
-        <div class="container">
-            <div class="box">
-                <h1>Daniel Moulton</h1>
-                <p>Computer Science Student</p>
-            </div>
+    </div>
+    <span onclick="openNav() ">open</span>
+    <div class="container ">
+        <div class="box ">
+            <h1>Daniel Moulton</h1>
+            <p>Computer Science Student</p>
         </div>
+    </div>
 </body>
 
 </html>
