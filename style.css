@@ -78,3 +78,8 @@
         right: 35px;
     }
 }
+
+.menuInteract {
+    font-size: 30px;
+    cursor: pointer;
+}
