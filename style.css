@@ -12,6 +12,14 @@
     width: 100%;
 }
 
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
 .navbar li {
     display: inline;
 }
@@ -53,3 +61,6 @@
     width: 50%;
     font-family: arial;
 }
+
+
+/* Center the navbar horizontally */

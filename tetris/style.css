@@ -1,0 +1,220 @@
+.navbar {
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: arial;
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    top: 0;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: blue;
+    width: 100%;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar li a {
+    float: left;
+    padding: 14px 16px;
+    width: 5%;
+    border-right: 1px solid #bbb;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #888
+}
+
+.active {
+    background-color: #545556
+}
+
+.main {
+    margin-top: 50px;
+    background-image: url(tetris.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 95%;
+    height: 750px;
+}
+
+.grey-container {
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto auto;
+    box-shadow: 5px 5px 5px;
+    background-color: #c7c7c7;
+    color: #000;
+    width: 50%;
+    font-family: arial;
+}
+
+input[type=text],
+[type=password] {
+    width: 95%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: solid 1px white;
+    background: #f1f1f1;
+}
+
+.registerbtn {
+    width: 20%;
+    background-color: #4d94f6;
+    color: white;
+    padding: 15px 20px;
+    margin: 8px;
+    border: 1px solid #f1f1f1;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+hr {
+    border: 0.5px solid #ffffff;
+    margin: auto;
+}
+
+a {
+    color: #4d94f6;
+}
+
+.login {
+    background-color: #f1f1f1;
+    text-align: center;
+    font-family: arial;
+    font-size: 12px;
+}
+
+#tetris-bg {
+    background-image: url(tetris-grid-bg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    height: 600px;
+    width: 300px;
+    background-color: #fcfcfc;
+}
+
+#tetris-bg div {
+    height: 30px;
+    width: 30px;
+}
+
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#results-table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+#results-table td,
+#results-table th,
+#results-table tr {
+    border: 1px solid #ddd;
+    border-spacing: 2px;
+    padding: 8px;
+    text-align: left;
+}
+
+#results-table th {
+    background-color: blue;
+    color: white;
+}
+
+#results-table tr:hover {
+    background-color: #3d59ab;
+    color: white;
+}
+
+#logged-in {
+    color: white;
+    background-color: #4d94f6;
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    width: 80%;
+}
+
+#logged-in form {
+    color: white;
+    background-color: #4d94f6;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0 15px 0;
+}
+
+#indexPlay {
+    color: #4d94f6;
+    background-color: white;
+    padding: 15px 32px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btnStart {
+    color: #4d94f6;
+    background-color: white;
+    padding: 15px 32px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 16px;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 100%;
+}
+
+.L {
+    background-color: #f0a100;
+}
+
+.Z {
+    background-color: #ef0100;
+}
+
+.O {
+    background-color: #eff100;
+}
+
+.I {
+    background-color: #00dcda;
+}
+
+.J {
+    background-color: #0001ec;
+}
+
+.S {
+    background-color: #48ff48;
+}
+
+.T {
+    background-color: #9f00f2;
+}
+
+.taken {
+    background-color: blue;
+}
+
+.hidden-row {
+    background-color: transparent;
+}
+
+
+/* .slotFilled {
+    background-color: #000;
+} */
