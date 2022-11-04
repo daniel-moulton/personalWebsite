@@ -10,22 +10,31 @@
 </head>
 
 <body>
-    <!-- Make a navigation bar that four options and has a static background-->
-    <nav class="navbar">
-        <ul>
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="projects.html">Projects</a></li>
-        </ul>
-    </nav>
-    <br>
-    <div class="container">
-        <div class="box">
-            <h1>Daniel Moulton</h1>
-            <p>Computer Science Student</p>
+    <script>
+        $(document).ready(function() {
+            $('.menu').click(function() {
+                $('.links').toggleClass('active');
+            });
+        });
+    </script>
+    <div class="menu"></div>
+    <a><i class="fa fa-bars"></i></a>
+    <div>
+        <div class="links">
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
         </div>
-    </div>
+        <br>
+        <div class="container">
+            <div class="box">
+                <h1>Daniel Moulton</h1>
+                <p>Computer Science Student</p>
+            </div>
+        </div>
 </body>
 
 </html>

@@ -1,66 +1,65 @@
-.navbar {
-    border-radius: 10px;
-    font-size: 12px;
-    font-family: arial;
-    padding: 0px;
-    margin: 0px;
-    position: fixed;
-    top: 0;
-    list-style-type: none;
-    overflow: hidden;
-    background-color: blue;
-    width: 100%;
-}
-
-.navbar ul {
-    list-style-type: none;
+body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
+    background: #FFFC85
 }
 
-.navbar li {
-    display: inline;
+.menu {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 2
 }
 
-.navbar li a {
-    float: left;
-    padding: 14px 16px;
-    width: 5%;
-    border-right: 1px solid #bbb;
-    color: white;
-    text-align: center;
+.menu a {
     text-decoration: none;
+    color: #262626;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-.navbar li a:hover {
-    background-color: #888
+.links {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    z-index: 1;
+    transition: 0.5s;
 }
 
-.active {
-    background-color: #545556
+ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.main {
-    margin-top: 50px;
-    background-image: url(tetris.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 95%;
-    height: 750px;
+ul li {
+    list-style: none;
 }
 
-.grey-container {
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px auto auto;
-    box-shadow: 5px 5px 5px;
-    background-color: #c7c7c7;
-    color: #000;
-    width: 50%;
-    font-family: arial;
+ul li a {
+    padding: 10px;
+    display: inline-block;
+    font-family: verdana;
+    font-size: 2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #262626;
 }
 
+ul li a:hover {
+    background: #FFFC85
+}
 
-/* Center the navbar horizontally */
+.links.active {
+    left: 0;
+    overflow: auto;
+}
