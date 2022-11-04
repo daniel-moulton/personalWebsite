@@ -432,12 +432,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (gameOver) {
             clearInterval(timer);
             document.removeEventListener('keyup', moveTetromino);
-            let gameScore = score;
-            let sendParams = 'gameScore=' + gameScore;
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "leaderboard.php")
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send(sendParams);
             document.getElementById('tetris-bg').remove();
             var gameOverDiv = document.getElementById("game-over-screen");
             var content = document.createTextNode("GAME OVER!");
