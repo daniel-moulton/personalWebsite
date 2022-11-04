@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -8,22 +9,15 @@
     <script src="tetris.js"></script>
     <title>Play Tetris</title>
 </head>
+
 <body>
-    <?php 
-        // session_start();
-        // if (!($_SESSION['loggedIn']==true)){
-        //     header('Location: index.php');
-        // }
-    ?>
     <ul class="navbar">
-        <li><a href="index.php" >Home</a></li>
+        <li><a href="./index.php">Home</a></li>
         <li><a style="float:right" href="tetris.php" class="active">Play Tetris</a></li>
-        <li><a style="float:right" href="leaderboard.php">Leaderboard</a></li>
-        <li><a style="float:right; <?php if (isset($_SESSION['loggedIn'])) {echo 'display: inline;';} else {echo 'display: none;';}?>" href="logout.php">Logout</a></li>
-    </ul> 
+    </ul>
     <hr>
     <div class="main">
-        <div class="grey-container"> 
+        <div class="grey-container">
             <button class="btnStart" id="startBtn">Start game!</button>
             <h2>Score: <span id="Score">0</span></h2>
             <div id="tetris-bg">
@@ -243,6 +237,7 @@
             </div>
         </div>
     </div>
-    
+
 </body>
+
 </html>
