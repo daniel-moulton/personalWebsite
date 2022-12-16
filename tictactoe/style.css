@@ -48,6 +48,10 @@ body {
     cursor: pointer;
 }
 
+.cell:hover {
+    background-color: #dcdcdc;
+}
+
 #winner {
     display: none;
 }
