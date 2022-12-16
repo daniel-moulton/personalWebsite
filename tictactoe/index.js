@@ -1,0 +1,95 @@
+const playerTurn = document.getElementById('playerTurn');
+console.log(playerTurn);
+const gameState = document.getElementById('winner');
+console.log(gameState);
+let gameRunning = true;
+let currentPlayer = "X";
+let startingPlayer = currentPlayer;
+
+const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+let gridState = ["", "", "", "", "", "", "", "", ""];
+
+const winningMessage = () => `Player ${currentPlayer} has won!`;
+const drawMessage = () => `Game ended in a draw!`;
+const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+
+
+function replyToClick(cellID) {;
+    let cellIndex = cellID.replace(/^\D+/g, "") - 1;
+    if (gridState[cellIndex] !== "" || !gameRunning) {
+        return;
+    }
+    gridState[cellIndex] = currentPlayer;
+    let cell = document.querySelector('#' + cellID)
+    cell.innerHTML = currentPlayer;
+    cell.style.color = currentPlayer === "X" ? "red" : "green";
+    checkGameStatus();
+    switchPlayer();
+}
+
+function switchPlayer() {
+    if (currentPlayer === "X") {
+        currentPlayer = "O";
+    } else {
+        currentPlayer = "X";
+    }
+    setPlayerTurn(currentPlayer);
+}
+
+function setPlayerTurn(player) {
+    playerTurn.innerHTML = "Turn: " + player;
+}
+
+function restartGame() {
+    gameRunning = true;
+    currentPlayer = startingPlayer === "X" ? "O" : "X";
+    setPlayerTurn(currentPlayer);
+    gridState = ["", "", "", "", "", "", "", "", ""];
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.innerHTML = "";
+    });
+    gameState.style.display = "none";
+}
+
+function checkGameStatus() {
+    let roundWon = false;
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningConditions[i];
+        let a = gridState[winCondition[0]];
+        let b = gridState[winCondition[1]];
+        let c = gridState[winCondition[2]];
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c) {
+            roundWon = true;
+            break
+        }
+    }
+
+    if (roundWon) {
+        gameState.innerHTML = winningMessage();
+        gameState.style.display = "block";
+        gameRunning = false;
+        return;
+    }
+
+    let roundDraw = !gridState.includes("");
+    if (roundDraw) {
+        gameState.innerHTML = drawMessage();
+        gameState.style.display = "block";
+        gameRunning = false;
+        return;
+    }
+}

@@ -1,5 +1,7 @@
 body {
     background-color: #c8b7a6;
+    color: #000;
+    font-family: "Helvetica Neue", Helvetica, Arial;
 }
 
 .overlay {
@@ -86,4 +88,12 @@ body {
 .menuInteract {
     font-size: 30px;
     cursor: pointer;
+}
+
+.headerContainer {
+    background-image: url("Me.jpg");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
