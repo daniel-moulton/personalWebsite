@@ -1,11 +1,17 @@
+html{
+    scroll-behavior: smooth;
+}
 body {
-    background-color: #c8b7a6;
-    color: #000;
-    font-family: "Helvetica Neue", Helvetica, Arial;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-family: FjallaOne;
+    margin: 0;
 }
 
+@font-face { font-family: FjallaOne; src: url('src/fonts/FjallaOne-Regular.ttf'); }
+
 .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    /* Height & width depends on how you want to reveal the overlay */
     height: 100%;
     width: 0;
     position: fixed;
@@ -14,7 +20,7 @@ body {
     /* Sit on top */
     left: 0;
     top: 0;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     /* Black fallback color */
     background-color: rgba(0, 0, 0, 0.9);
     /* Black w/opacity */
@@ -69,6 +75,7 @@ body {
     top: 20px;
     right: 45px;
     font-size: 60px;
+    text-align: left;
 }
 
 
@@ -78,6 +85,7 @@ body {
     .overlay a {
         font-size: 20px
     }
+
     .overlay .closebtn {
         font-size: 40px;
         top: 15px;
@@ -86,14 +94,45 @@ body {
 }
 
 .menuInteract {
-    font-size: 30px;
+    font-size: 50px;
     cursor: pointer;
+    margin: 0 0 0 1vh;
+    position: fixed;
 }
 
-.headerContainer {
-    /* background-image: url("Me.jpg"); */
-    height: 500px;
+#headerText {
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.homeContainer {
+    /* background-image: url("src/images/starryNight.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+}
+
+#backgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* scales the video to fit the size of the element while preserving its aspect ratio */
+    z-index: -1;  /* positions the video behind other elements */
+  }
+
+.aboutContainer{
+    width: 100vw;
+    height: 100vh;
+    color: #000;
+    background-color: #fff;
 }

@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Moulton</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Daniel Moulton</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="index.js"></script>
+    </head>
 
-<body>
-    <!-- Menu Overlay -->
-    <div id="navbar" class="overlay">
+    <body>
+        <div id="home" class="homeContainer">
+            <!-- Menu Overlay -->
+            <div id="navbar" class="overlay">
 
-        <!-- Close button for overlay -->
-        <a href="javascript:void(0) " class="closebtn menuInteract" onclick="closeNav() ">&times;</a>
+                <!-- Close button for overlay -->
+                <a href="javascript:void(0) " class="closebtn menuInteract"
+                    onclick="closeNav() ">&times;</a>
 
-        <!-- Menu content -->
-        <div class="links ">
-            <a href="#home" onclick=" closeNav() ">Home</a>
-            <a href="#about" onclick="closeNav()">About</a>
-            <a href="#contact" onclick=" closeNav() ">Contact</a>
-            <a href="#projects" onclick=closeNav() ">Projects</a>
+                <!-- Menu content -->
+                <div class="links ">
+                    <a href="#home" onclick="closeNav() ">Home</a>
+                    <a href="#about" onclick="closeNav()">About</a>
+                    <a href="#projects" onclick=closeNav() ">Projects</a>
+                    <a href="#contact " onclick=" closeNav() ">Contact</a>
+                </div>
+            </div>
+            <span onclick="openNav() " class="menuInteract ">&#9776;</span>
+            <video src="src/videos/darkDustParticles.mp4" autoplay loop muted
+                poster="src/images/darkDustParticlesPoster.png"
+                id="backgroundVideo"
+                playbackRate="0.5"></video>
+            <div id="headerText">
+                <p> Hi, I'm Daniel Moulton! </p>
+                <p> Welcome to my website! </p>
+            </div>
+            <!-- A down arrow that when clicked scrolls down to the about section -->
+            <!-- <div id="downArrow">
+                <a href="#about">
+                    <img src="images/downArrow.png" alt="Down Arrow">
+                </a>
+            </div> -->
         </div>
-    </div>
-    <span onclick="openNav() " class="menuInteract ">&#9776;</span>
-    <header class="headerContainer ">
-        <h1 class="headerName ">Daniel Moulton</h1>
-        <p>Computer Science Student</p>
-    </header>
-</body>
-
+        <div id="about" class="aboutContainer">
+            <div id="aboutText">
+                <h1> About Me </h1>
+                <p> I am a student at the University of Washington studying
+                    Computer Science and
+                    Mathematics. I am currently a Junior and I am looking for a
+                    summer internship
+                    for 2022. </p>
+            </div>
+            <div id="aboutImage">
+                <img src="" alt="Daniel Moulton">
+            </div>
+        </div>
+        <div id="projects" class="projectsContainer"></div>
+        <div id="contact" class="contactContainer"></div>
+    </body>
 </html>
