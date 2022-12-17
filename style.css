@@ -115,7 +115,8 @@ body {
     text-align: center;
 }
 
-.homeContainer {
+.homeContainer,
+.projectsContainer {
     /* background-image: url("src/images/starryNight.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -143,7 +144,9 @@ body {
     z-index: -1;  /* positions the video behind other elements */
   }
 
-.aboutContainer{
+
+.aboutContainer,
+.contactContainer{
     width: 100vw;
     height: 100vh;
     background-color: #fff;  
@@ -151,8 +154,9 @@ body {
 }
 
 .aboutContainer p{
-    
+
 }
+
 
 .aboutContainer h1{
     font-size: 50px;
@@ -160,4 +164,8 @@ body {
     margin-top: 10vh;
     padding-top: 5vh;
     
+}
+
+.projectsContainer{
+    background-color: #000;
 }
