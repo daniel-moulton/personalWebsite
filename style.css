@@ -98,6 +98,11 @@ body {
     cursor: pointer;
     margin: 0 0 0 1vh;
     position: fixed;
+    transition: transform 0.5s;
+}
+
+.menuInteract:hover {
+    transform: scale(1.5);
 }
 
 #headerText {
@@ -120,6 +125,14 @@ body {
     color: #fff;
 }
 
+.homeContainer img {
+    transition: transform .5s;
+}
+
+.homeContainer a:hover img {
+    transform: scale(2);
+}
+
 #backgroundVideo {
     position: fixed;
     top: 0;
@@ -133,9 +146,18 @@ body {
 .aboutContainer{
     width: 100vw;
     height: 100vh;
-    background-color: #000000;  
+    background-color: #fff;  
+    color: #000;
 }
 
-#aboutArrow{
+.aboutContainer p{
+    
+}
 
+.aboutContainer h1{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10vh;
+    padding-top: 5vh;
+    
 }
