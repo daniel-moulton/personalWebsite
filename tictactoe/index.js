@@ -5,6 +5,8 @@ console.log(gameState);
 let gameRunning = true;
 let currentPlayer = "X";
 let startingPlayer = currentPlayer;
+let xScore = 0;
+let yScore = 0;
 
 const winningConditions = [
     [0, 1, 2],
@@ -58,6 +60,7 @@ function restartGame() {
     let cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
         cell.innerHTML = "";
+        cell.style.backgroundColor = "white";
     });
     gameState.style.display = "none";
 }
@@ -74,12 +77,22 @@ function checkGameStatus() {
         }
         if (a === b && b === c) {
             roundWon = true;
+            let cells = winningConditions[i].map(index => document.querySelector(`#cell${index + 1}`));
+            cells.forEach(cell => {
+                cell.style.backgroundColor = "yellow";
+            });
             break
         }
     }
 
     if (roundWon) {
         gameState.innerHTML = winningMessage();
+        if (currentPlayer === "X") {
+            xScore++;
+        } else {
+            yScore++;
+        }
+        document.getElementById('score').innerHTML = "Score: " + xScore + " - " + yScore;
         gameState.style.display = "block";
         gameRunning = false;
         return;
