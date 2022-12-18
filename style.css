@@ -157,12 +157,13 @@ body {
 
 }
 
-
+.projectsContainer h1,
+.contactContainer h1,
 .aboutContainer h1{
     font-size: 50px;
     text-align: center;
-    margin-top: 10vh;
-    padding-top: 5vh;
+    padding-top: 10vh;
+    margin: 0;
     
 }
 
