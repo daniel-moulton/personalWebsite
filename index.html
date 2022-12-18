@@ -7,11 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Daniel Moulton</title>
         <link rel="stylesheet" href="style.css">
-        <script src="index.js"></script>
     </head>
 
     <body>
-        <div id="home" class="homeContainer">
+        <!-- Home Section -->
+        <section id="home" data-color="#fff" class="homeContainer">
+
             <!-- Menu Overlay -->
             <div id="navbar" class="overlay">
 
@@ -27,48 +28,60 @@
                     <a href="#contact " onclick=" closeNav() ">Contact</a>
                 </div>
             </div>
-            <span onclick="openNav() " class="menuInteract ">&#9776;</span>
+            <span onclick="openNav()" id="openMenu" class="menuInteract">&#9776;</span>
+            <!-- Video Background -->
             <video src="src/videos/darkDustParticles.mp4" autoplay loop muted
                 poster="src/images/darkDustParticlesPoster.png"
                 id="backgroundVideo"
                 playbackRate="0.5"></video>
+
+            <!-- Header Text -->
             <div id="headerText">
                 <p>Hi, I'm Daniel Moulton.</p>
                 <p>Welcome to my website!</p>
-                <a id="aboutArrow" href="#about">
-                    <img src="src/images/chevron-down.svg">
+                <a id="aboutArrow" class="downArrow" href="#about">
+                    <img src="src/images/downArrowWhite.svg">
                 </a>
             </div>
-        </div>
+        </section>
 
         <!-- About Me Section-->
-        <div id="about" class="aboutContainer">
+        <section id="about" data-color="#000" class="aboutContainer">
             <div id="aboutText">
                 <h1> About Me </h1>
                 <p> I am a student at the University of Exeter studying
                     Computer Science. I am currently looking for an industrial
-                    placement for next year.</p>
+                    placement for next year.
+                </p>
+                <p> I am primarily interested in software engineering.</p>
             </div>
             <div id="aboutImage">
                 <!-- <img src="src/images/Me.jpg" alt="Daniel Moulton"> -->
             </div>
-        </div>
+            <a id="projectsArrow" class="downArrow" href="#projects">
+                <img src="src/images/downArrowBlack.svg">
+            </a>
+        </section>
 
         <!-- Projects Section -->
-        <div id="projects" class="projectsContainer">
+        <section id="projects" data-color="#fff" class="projectsContainer">
             <div id="projectsText">
                 <h1> Projects </h1>
-                <p> Here are some of the projects I have worked on. </p>
             </div>
-        </div>
+
+            <a id="contactArrow" class="downArrow" href="#contact">
+                <img src="src/images/downArrowWhite.svg">
+            </a>
+        </section>
 
         <!-- Contact Me Section -->
-        <div id="contact" class="contactContainer">
+        <section id="contact" data-color="#000" class="contactContainer">
             <div id="contactText">
                 <h1> Contact Me </h1>
                 <p> If you would like to get in touch with me, please use the
                     form below. </p>
             </div>
-        </div>
+        </section>
+        <script src="index.js"></script>
     </body>
 </html>

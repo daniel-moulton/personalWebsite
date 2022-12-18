@@ -1,6 +1,7 @@
-html{
+html {
     scroll-behavior: smooth;
 }
+
 body {
     background-color: #000000;
     color: rgb(255, 255, 255);
@@ -8,7 +9,10 @@ body {
     margin: 0;
 }
 
-@font-face { font-family: FjallaOne; src: url('src/fonts/FjallaOne-Regular.ttf'); }
+@font-face {
+    font-family: FjallaOne;
+    src: url('src/fonts/FjallaOne-Regular.ttf');
+}
 
 .overlay {
     /* Height & width depends on how you want to reveal the overlay */
@@ -20,7 +24,6 @@ body {
     /* Sit on top */
     left: 0;
     top: 0;
-    background-color: rgb(255, 255, 255);
     /* Black fallback color */
     background-color: rgba(0, 0, 0, 0.9);
     /* Black w/opacity */
@@ -99,6 +102,7 @@ body {
     margin: 0 0 0 1vh;
     position: fixed;
     transition: transform 0.5s;
+    z-index: 1;
 }
 
 .menuInteract:hover {
@@ -117,20 +121,16 @@ body {
 
 .homeContainer,
 .projectsContainer {
-    /* background-image: url("src/images/starryNight.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
     width: 100vw;
     height: 100vh;
     color: #fff;
 }
 
-.homeContainer img {
+.downArrow img {
     transition: transform .5s;
 }
 
-.homeContainer a:hover img {
+a:hover img {
     transform: scale(2);
 }
 
@@ -140,33 +140,57 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* scales the video to fit the size of the element while preserving its aspect ratio */
-    z-index: -1;  /* positions the video behind other elements */
-  }
+    object-fit: cover;
+    /* scales the video to fit the size of the element while preserving its aspect ratio */
+    z-index: -1;
+    /* positions the video behind other elements */
+}
 
 
 .aboutContainer,
-.contactContainer{
+.contactContainer {
     width: 100vw;
     height: 100vh;
-    background-color: #fff;  
+    background-color: #fff;
     color: #000;
+    position: relative;
 }
 
-.aboutContainer p{
+#aboutImage img {
+    max-width: 50%;
+    max-height: 50%;
+    display: block;
 
+}
+
+#aboutText {
+    font-size: 20px;
+    padding: 0 10vw 0 10vw;
+}
+
+#contactArrow,
+#projectsArrow{
+    font-size: 50px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50%, 0%);
+    text-align: center;
+    position: absolute;
 }
 
 .projectsContainer h1,
 .contactContainer h1,
-.aboutContainer h1{
+.aboutContainer h1 {
     font-size: 50px;
     text-align: center;
     padding-top: 10vh;
     margin: 0;
-    
+
 }
 
-.projectsContainer{
+.projectsContainer {
     background-color: #000;
+    position: relative;
 }
