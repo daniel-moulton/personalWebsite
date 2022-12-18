@@ -48,14 +48,23 @@ function switchPlayer() {
     setPlayerTurn(currentPlayer);
 }
 
+function switchStartingPlayer(){
+    if (startingPlayer === "X") {
+        startingPlayer = "O";
+    } else {
+        startingPlayer = "X";
+    }
+    currentPlayer = startingPlayer;
+    setPlayerTurn(currentPlayer);
+}
+
 function setPlayerTurn(player) {
     playerTurn.innerHTML = "Turn: " + player;
 }
 
 function restartGame() {
     gameRunning = true;
-    currentPlayer = startingPlayer === "X" ? "O" : "X";
-    setPlayerTurn(currentPlayer);
+    switchStartingPlayer();
     gridState = ["", "", "", "", "", "", "", "", ""];
     let cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
