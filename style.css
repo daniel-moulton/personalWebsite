@@ -184,7 +184,7 @@ a:hover img  {
 
 .projectsContainer h1,
 .contactContainer h1,
-.aboutContainer h1 {
+.aboutContainer h1  {
     font-size: 50px;
     text-align: center;
     padding-top: 10vh;
@@ -194,6 +194,11 @@ a:hover img  {
 .projectsContainer {
     background-color: #000;
     position: relative;
+}
+
+.contactContainer p{
+    /* Move the text to the right */
+    margin-left: 1vw;
 }
 
 #contactForm{
@@ -208,12 +213,14 @@ a:hover img  {
     padding: 10px;
 }
 
+
 #fs-frm input,
 #fs-frm select,
 #fs-frm textarea,
 #fs-frm fieldset,
 #fs-frm optgroup,
 #fs-frm label,
+#fs-frm div,
 #fs-frm #card-element:disabled {
   font-family: inherit;
   font-size: 100%;
@@ -222,16 +229,19 @@ a:hover img  {
   border-radius: 10px;
   display: block;
   width: 100%;
+  box-sizing: border-box;
 }
+
 
 #fs-frm label,
 #fs-frm legend,
+#fs-frm div,
 #fs-frm ::placeholder {
   font-size: .825rem;
   margin-bottom: .5rem;
   padding-top: .2rem;
   display: flex;
-  align-items: baseline;
+  align-items: inline;
 }
 
 /* border, padding, margin, width */
@@ -244,6 +254,15 @@ a:hover img  {
   padding: .75em 1rem;
   margin-bottom: 1.5rem;
 }
+
+#contactFormSubmit:hover{
+    background-color: #000;
+    color: #fff;
+    transition: background-color 1s;
+    cursor: pointer;
+}
+
+
 #footer {
   position: absolute;
   left: 0;

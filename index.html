@@ -86,23 +86,21 @@
                 <form id="fs-frm" name="simple-contact-form"
                     accept-charset="utf-8"
                     action="https://formspree.io/f/mbjerybe" method="post">
-                    <fieldset id="fs-frm-inputs">
-                        <label for="full-name">Full Name</label>
-                        <input type="text" name="name" id="full-name"
-                            placeholder="First and Last" required="">
-                        <label for="email-address">Email Address</label>
-                        <input type="email" name="_replyto" id="email-address"
-                            placeholder="email@domain.tld" required="">
-                        <label for="message">Message</label>
-                        <textarea rows="3" name="message" id="message"
-                            placeholder="Please enter your message here"
-                            required=""></textarea>
-                        <input type="hidden" name="_subject" id="email-subject"
-                            value="Contact Form Submission">
-                    </fieldset>
+                    <label for="full-name">Full Name</label>
+                    <input type="text" name="name" id="full-name"
+                        placeholder="First and Last" required="">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" name="_replyto" id="email-address"
+                        placeholder="email@domain.tld" required="">
+                    <label for="message">Message</label>
+                    <textarea rows="3" name="message" id="message"
+                        placeholder="Please enter your message here"
+                        required=""></textarea>
+                    <input type="hidden" name="_subject" id="email-subject"
+                        value="Contact Form Submission">
                     <div class="g-recaptcha"
                         data-sitekey="6LcTt5UjAAAAAP-tHLjO21PaR46fMpKsEcQahkzm"></div>
-                    <input type="submit" value="Submit">
+                    <input id="contactFormSubmit" type="submit" value="Submit">
                 </form>
             </div>
 
