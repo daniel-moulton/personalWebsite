@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Daniel Moulton</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
 
     <body>
@@ -81,6 +82,51 @@
                 <p> If you would like to get in touch with me, please use the
                     form below. </p>
             </div>
+            <div id="contactForm">
+                <form id="fs-frm" name="simple-contact-form"
+                    accept-charset="utf-8"
+                    action="https://formspree.io/f/mbjerybe" method="post">
+                    <fieldset id="fs-frm-inputs">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" name="name" id="full-name"
+                            placeholder="First and Last" required="">
+                        <label for="email-address">Email Address</label>
+                        <input type="email" name="_replyto" id="email-address"
+                            placeholder="email@domain.tld" required="">
+                        <label for="message">Message</label>
+                        <textarea rows="3" name="message" id="message"
+                            placeholder="Please enter your message here"
+                            required=""></textarea>
+                        <input type="hidden" name="_subject" id="email-subject"
+                            value="Contact Form Submission">
+                    </fieldset>
+                    <div class="g-recaptcha"
+                        data-sitekey="6LcTt5UjAAAAAP-tHLjO21PaR46fMpKsEcQahkzm"></div>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <section id="footer">
+                <div id="socials">
+                    <a href="https://www.linkedin.com/in/daniel-p-moulton/"
+                        id="linkedinGif" target="_blank">
+                        <img src="src/images/icons8LinkedIn.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com/daniel-moulton" target="_blank">
+                        <img src="src/images/icons8GitHub.png" alt="GitHub">
+                    </a>
+                    <a href="https://www.instagram.com/dan_moulton/"
+                        target="_blank">
+                        <img src="src/images/icons8Instagram.png"
+                            alt="Instagram">
+                    </a>
+                    <a href="https://twitter.com/dan_moulton" target="_blank">
+                        <img src="src/images/icons8Twitter.png" alt="Twitter">
+                    </a>
+                </div>
+                <p>© 2022 Daniel Moulton</p>
+            </section>
         </section>
         <script src="index.js"></script>
     </body>

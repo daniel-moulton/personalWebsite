@@ -113,14 +113,15 @@ body {
     font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 50%;
+    top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
 .homeContainer,
-.projectsContainer {
+.projectsContainer,
+.footer {
     width: 100vw;
     height: 100vh;
     color: #fff;
@@ -130,9 +131,10 @@ body {
     transition: transform .5s;
 }
 
-a:hover img {
+a:hover img  {
     transform: scale(2);
 }
+
 
 #backgroundVideo {
     position: fixed;
@@ -187,10 +189,87 @@ a:hover img {
     text-align: center;
     padding-top: 10vh;
     margin: 0;
-
 }
 
 .projectsContainer {
     background-color: #000;
     position: relative;
+}
+
+#contactForm{
+    background-color: #fff;
+    /* Center the form in the middle of the div*/
+    margin: 0 auto;
+    /* Set the width of the form */
+    width: 50%;
+    /* Add some padding around the form */
+    padding: 1em;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm fieldset,
+#fs-frm optgroup,
+#fs-frm label,
+#fs-frm #card-element:disabled {
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  border: none;
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+}
+
+#fs-frm label,
+#fs-frm legend,
+#fs-frm ::placeholder {
+  font-size: .825rem;
+  margin-bottom: .5rem;
+  padding-top: .2rem;
+  display: flex;
+  align-items: baseline;
+}
+
+/* border, padding, margin, width */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm #card-element {
+  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.9);
+  padding: .75em 1rem;
+  margin-bottom: 1.5rem;
+}
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+#footer a {
+    color: white;
+    text-decoration: none;
+    position: inline;
+    /* left: 50%; */
+    /* transform: translate(-50%, 0%); */
+}
+
+#socials img{
+    width: 48px;
+    height: 48px;
+    margin: 0 0 0 1vh;
+    transform: scale(1);
+}
+
+#linkedinGif:hover {
+    content:url(src/images/icons8LinkedIn.gif);
+    width: 48px;
+    height: 48px;
+    margin: 0 0 0 1vh;
 }
