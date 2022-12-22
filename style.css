@@ -113,7 +113,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -122,7 +122,7 @@ body {
 .homeContainer,
 .projectsContainer,
 .footer {
-    width: 100vw;
+    width: auto;
     height: 100vh;
     color: #fff;
 }
@@ -131,7 +131,7 @@ body {
     transition: transform .5s;
 }
 
-a:hover img  {
+a:hover img {
     transform: scale(2);
 }
 
@@ -151,7 +151,7 @@ a:hover img  {
 
 .aboutContainer,
 .contactContainer {
-    width: 100vw;
+    width: auto;
     height: 100vh;
     background-color: #fff;
     color: #000;
@@ -171,7 +171,7 @@ a:hover img  {
 }
 
 #contactArrow,
-#projectsArrow{
+#projectsArrow {
     font-size: 50px;
     cursor: pointer;
     transition: transform 0.5s;
@@ -184,7 +184,7 @@ a:hover img  {
 
 .projectsContainer h1,
 .contactContainer h1,
-.aboutContainer h1  {
+.aboutContainer h1 {
     font-size: 50px;
     text-align: center;
     padding-top: 10vh;
@@ -196,12 +196,98 @@ a:hover img  {
     position: relative;
 }
 
-.contactContainer p{
+.slideshowContainer {
+    /* Center the slides in the middle of the container */
+    position: relative;
+    margin: auto;
+    /* Set the width of the slideshow container */
+    width: 80%;
+
+}
+
+.gallery {
+    /* Hide the images by default */
+    display: none;
+}
+
+.gallery img {
+    width: 30rem;
+    height: 30rem;
+    ;
+
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: auto;
+    text-align: center;
+}
+
+.galleryButtons {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.galleryButtons:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.contactContainer p {
     /* Move the text to the right */
     margin-left: 1vw;
 }
 
-#contactForm{
+#contactForm {
     background-color: #fff;
     /* Center the form in the middle of the div*/
     margin: 0 auto;
@@ -222,14 +308,14 @@ a:hover img  {
 #fs-frm label,
 #fs-frm div,
 #fs-frm #card-element:disabled {
-  font-family: inherit;
-  font-size: 100%;
-  color: inherit;
-  border: none;
-  border-radius: 10px;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
+    font-family: inherit;
+    font-size: 100%;
+    color: inherit;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
@@ -237,11 +323,11 @@ a:hover img  {
 #fs-frm legend,
 #fs-frm div,
 #fs-frm ::placeholder {
-  font-size: .825rem;
-  margin-bottom: .5rem;
-  padding-top: .2rem;
-  display: flex;
-  align-items: inline;
+    font-size: .825rem;
+    margin-bottom: .5rem;
+    padding-top: .2rem;
+    display: flex;
+    align-items: inline;
 }
 
 /* border, padding, margin, width */
@@ -249,28 +335,37 @@ a:hover img  {
 #fs-frm select,
 #fs-frm textarea,
 #fs-frm #card-element {
-  border: 1px solid rgba(0,0,0,0.2);
-  background-color: rgba(255,255,255,0.9);
-  padding: .75em 1rem;
-  margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: .75em 1rem;
+    margin-bottom: 1.5rem;
 }
 
-#contactFormSubmit:hover{
+#contactFormSubmit:hover {
     background-color: #000;
     color: #fff;
     transition: background-color 1s;
     cursor: pointer;
 }
 
+#g-recaptcha-response {
+    display: block !important;
+    position: absolute;
+    margin: -50px 0 0 0 !important;
+    z-index: -999999;
+    opacity: 0;
+}
+
 
 #footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: black;
-  text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
 }
+
 #footer a {
     color: white;
     text-decoration: none;
@@ -279,7 +374,7 @@ a:hover img  {
     /* transform: translate(-50%, 0%); */
 }
 
-#socials img{
+#socials img {
     width: 48px;
     height: 48px;
     margin: 0 0 0 1vh;
@@ -287,7 +382,7 @@ a:hover img  {
 }
 
 #linkedinGif:hover {
-    content:url(src/images/icons8LinkedIn.gif);
+    content: url(src/images/icons8LinkedIn.gif);
     width: 48px;
     height: 48px;
     margin: 0 0 0 1vh;
