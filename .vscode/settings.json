@@ -1,3 +1,4 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "livePreview.defaultPreviewPath": "/Users/danielmoulton/repos/daniel-moulton.github.io/index.html"
 }
