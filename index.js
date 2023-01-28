@@ -1,3 +1,4 @@
+
 /* Open */
 function openNav() {
     document.getElementById("navbar").style.width = "100%";
@@ -36,4 +37,3 @@ window.onload = function () {
         el.setAttribute('required', 'required');
     }
 }
-

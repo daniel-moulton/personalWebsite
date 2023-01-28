@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -7,6 +11,7 @@ body {
     color: rgb(255, 255, 255);
     font-family: FjallaOne;
     margin: 0;
+    line-height: 1.2;
 }
 
 @font-face {
@@ -158,16 +163,32 @@ a:hover img {
     position: relative;
 }
 
-#aboutImage img {
-    max-width: 50%;
-    max-height: 50%;
-    display: block;
-
+#about {
 }
 
+#aboutHeader {
+    /* Create some space between the header and the text below */
+    padding-bottom: 20px;
+}
+#aboutImage {
+    float: right;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 3vw 0 1vw;
+
+}
+#aboutImage img {
+    float: right;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
 #aboutText {
-    font-size: 20px;
+    text-align: justify;
     padding: 0 10vw 0 10vw;
+    font-size: 20px;
 }
 
 #contactArrow,
@@ -191,96 +212,150 @@ a:hover img {
     margin: 0;
 }
 
+@media (max-width: 768px) {
+    #aboutImage {
+        float: none;
+        width: 30vw;
+        height: 30vw;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 0 auto;
+    }
+    #aboutText {
+        text-align: justify;
+        padding: 0 10vw 0 10vw;
+        font-size: 20px;
+    }
+}
+
+/* ------------------- */
+/* Projects Section CSS */
+/* ------------------- */
+
+@media (min-width: 768px) {
+    #projectsGrid {
+        max-width: 90%;
+        /* Increase the maximum width for larger viewports */
+    }
+}
+
 .projectsContainer {
     background-color: #000;
     position: relative;
+    height: 100vh;
 }
 
-.slideshowContainer {
-    /* Center the slides in the middle of the container */
-    position: relative;
-    margin: auto;
-    /* Set the width of the slideshow container */
-    width: 80%;
-
-}
-
-.gallery {
-    /* Hide the images by default */
-    display: none;
-}
-
-.gallery img {
-    width: 30rem;
-    height: 30rem;
-    ;
-
-}
-
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: auto;
+#projectsText {
     text-align: center;
+    padding: 0 10vw 0 10vw;
 }
 
-.galleryButtons {
-    cursor: pointer;
-    position: fixed;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+#projectsText a {
+    color: #fff;
+    text-decoration: underline;
 }
 
-.next {
+
+#projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns with equal width */
+    grid-template-rows: repeat(2, 1fr);
+    /* 2 rows with equal height */
+    gap: 1vw;
+    /* spacing between the grid items */
+    max-width: 60%;
+    /* set the maximum width of the container */
+    max-height: 60%;
+    /* set the maximum height of the container */
+    overflow: hidden;
+    /* hide any content that exceeds the container's size */
+    /* center the four divs */
+    margin: auto;
+    margin-top: 2vh;
+    /* set the background color of the container */
+    /* position the container relative to the viewport */
+    /* add some padding to the container */
+
+}
+
+.item {
+    background-color: #fff;
+    max-width: 30vw;
+    max-height: 30vh;
+    position: relative;
+}
+
+.item img {
+    width: 100%;
+    /* set the width of the images to fill the grid items*/
+    height: 100%;
+    object-fit: cover;
+    /* keep the aspect ratio of the images */
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.item:hover img {
+    opacity: 0;
+}
+
+.item:hover .projectHover {
+    opacity: 1;
+}
+
+.projectHover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
     right: 0;
-    border-radius: 3px 0 0 3px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #fff;
 }
 
-.galleryButtons:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.hoverText p {
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    /* top: 50%; */
+    transform: translateY(50%);
 }
 
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+
+.projectHover a {
+    appearance: button;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 20%;
+    text-align: center;
+    display: grid;
+
 }
 
-.active,
-.dot:hover {
-    background-color: #717171;
+.projectHover a:hover {
+    /* glow */
+    box-shadow: 0 0 5px #000, 0 0 20px #999, 0 0 20px #ccc;
 }
 
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
 
-@keyframes fade {
-    from {
-        opacity: .4
-    }
 
-    to {
-        opacity: 1
-    }
-}
+/* ------------------- */
+/* Contact Section CSS */
+/* ------------------- */
 
 .contactContainer p {
     /* Move the text to the right */
@@ -347,14 +422,6 @@ a:hover img {
     cursor: pointer;
 }
 
-#g-recaptcha-response {
-    display: block !important;
-    position: absolute;
-    margin: -50px 0 0 0 !important;
-    z-index: -999999;
-    opacity: 0;
-}
-
 
 #footer {
     position: absolute;
@@ -380,9 +447,9 @@ a:hover img {
     transform: scale(1);
 }
 
-#linkedinGif:hover {
+/* #linkedinGif:hover {
     content: url(src/images/icons8LinkedIn.gif);
     width: 48px;
     height: 48px;
     margin: 0 0 0 1vh;
-}
+} */

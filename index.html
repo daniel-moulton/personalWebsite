@@ -23,7 +23,7 @@
             <div id="navbar" class="overlay">
 
                 <!-- Close button for overlay -->
-                <a href="javascript:void(0) " class="closebtn menuInteract"
+                <a href="javascript:void(0)" class="closebtn menuInteract"
                     onclick="closeNav() ">&times;</a>
 
                 <!-- Menu content -->
@@ -53,17 +53,27 @@
 
         <!-- About Me Section-->
         <section id="about" data-color="#000" class="aboutContainer">
-            <div id="aboutText">
-                <h1> About Me </h1>
-                <p> I am a student at the University of Exeter studying
-                    Computer Science. I am currently looking for an industrial
-                    placement for next year.
-                </p>
-                <p> I am primarily interested in software engineering.</p>
-            </div>
+            <h1 id="aboutHeader"> About Me </h1>
             <div id="aboutImage">
-                <!-- <img src="src/images/Me.jpg" alt="Daniel Moulton"> -->
+                <img src="src/images/Me.jpg" alt="Daniel Moulton">
             </div>
+            <div id="aboutText">
+                <p> I'm a second year computer science student at the University
+                    of Exeter. I'm actively seeking an industrial placement for
+                    2023.
+                </p>
+                <p> I am a highly motivated and hardworking individual with a
+                    strong passion for technology and its ability to shape the
+                    world we live in. I am eager to gain hands-on experience in
+                    the industry and apply the knowledge and skills I have
+                    acquired during my studies to real-world projects.</p>
+                <p> Below you will find a few examples of my projects as well as
+                    a form to contact me if you have any questions or
+                    opportunities that you think I would be a good fit for. I am
+                    open to exploring all aspects of computer science and look
+                    forward to connecting with you.</p>
+            </div>
+
             <a id="projectsArrow" class="downArrow" href="#projects">
                 <img src="src/images/downArrowBlack.svg">
             </a>
@@ -73,9 +83,83 @@
         <section id="projects" data-color="#fff" class="projectsContainer">
             <div id="projectsText">
                 <h1> Projects </h1>
+                <br>
+                <p> Here are some of my projects. You can find more on my <a
+                        href="https://github.com/daniel-moulton"> GitHub</a>.</p>
             </div>
-            
-
+            <div id="projectsGrid">
+                <div class="item">
+                    <img src="src/images/siteHomepage.jpg" alt="Daniel Moulton">
+                    <div class="projectHover">
+                        <div class="hoverText">
+                            <p>Personal Website</p>
+                            <p>Developed by me to act as a portfolio for future
+                                projects as well as to help build my online
+                                presence.</p>
+                            <p>Languages used: HTML, CSS, JS</p>
+                        </div>
+                        <a
+                            href="https://github.com/daniel-moulton/daniel-moulton.github.io/">View
+                            Project</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="src/images/tetrisProjectImage.jpeg" alt="Daniel
+                        Moulton">
+                    <div class="projectHover">
+                        <div class="hoverText">
+                            <p>Tetris LAMP Stack Web Server </p>
+                            <p>A complete Tetris game in JS, with a working
+                                leaderboard and regestration system.</p>
+                            <p>Deployed on a LAMP stack web server to an Azure
+                                VM </p>
+                            <p>Languages used: HTML, CSS, JS, PHP, MySQL</p>
+                        </div>
+                        <a
+                            href="https://github.com/daniel-moulton/TetrisLAMPStack">View
+                            Project</a>
+                        <a href="/tetris/tetris.html">Play Game</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="src/images/cardGameProjectImage.jpg" alt="Daniel
+                        Moulton">
+                    <div class="projectHover">
+                        <div class="hoverText">
+                            <p>Multi-Threaded Card Simulation</p>
+                            <p>A multi-threaded card simulation where players
+                                try to get four of the same card first.</p>
+                            <p>Worked according to the pair programming
+                                methodology.</p>
+                            <p>Implemented extensive JUnit testing, JaCoCo code
+                                coverage and a JavaDoc.</p>
+                            <p>Languages used: Java</p>
+                        </div>
+                        <a
+                            href="https://github.com/daniel-moulton/threaded-card-sim">View
+                            Project</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="src/images/covidProjectImage.jpg" alt="Daniel
+                        Moulton">
+                    <div class="projectHover">
+                        <div class="hoverText">
+                            <p>Covid-19 API Dashboard Web Application</p>
+                            <p>Built a flask web app to allow users to view
+                                up-to-date covid information for a
+                                region and country of choice as well as view
+                                news articles matching user parameters</p>
+                            <p>Accessed data using APIs for
+                                Public Health England and NewsAPI.org</p>
+                            <p>Languages used: Python</p>
+                        </div>
+                        <a
+                            href="https://github.com/daniel-moulton/Covid-API-Project">View
+                            Project</a>
+                    </div>
+                </div>
+            </div>
             <a id="contactArrow" class="downArrow" href="#contact">
                 <img src="src/images/downArrowWhite.svg">
             </a>
@@ -108,9 +192,6 @@
                     <input type="hidden" name="_subject" id="email-subject"
                         value="Contact Form Submission">
 
-                    <div class="g-recaptcha" id="g-recaptcha-response"
-                        data-sitekey="6LcTt5UjAAAAAP-tHLjO21PaR46fMpKsEcQahkzm"
-                        data-theme="#000"></div>
                     <input id="contactFormSubmit" type="submit" value="Submit">
                 </form>
             </div>
@@ -119,7 +200,7 @@
             <section id="footer">
                 <div id="socials">
                     <a href="https://www.linkedin.com/in/daniel-p-moulton/"
-                        id="linkedinGif" target="_blank">
+                        target="_blank">
                         <img src="src/images/icons8LinkedIn.png" alt="LinkedIn">
                     </a>
                     <a href="https://github.com/daniel-moulton" target="_blank">
@@ -137,7 +218,6 @@
                 <p>© 2022 Daniel Moulton</p>
             </section>
         </section>
-        <script src="index.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
@@ -149,5 +229,6 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+        <script src="index.js"></script>
     </body>
 </html>
