@@ -56,7 +56,8 @@ body {
     display: none;
 }
 
-#reset {
+#restart {
+    display: none;
     background-color: #4d94f6;
     color: white;
     border: 1px solid #f1f1f1;
