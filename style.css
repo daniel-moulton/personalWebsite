@@ -157,10 +157,10 @@ a:hover img {
 .aboutContainer,
 .contactContainer {
     width: auto;
-    height: 100vh;
     background-color: #fff;
     color: #000;
     position: relative;
+    padding-bottom: 100px;
 }
 
 #aboutHeader {
