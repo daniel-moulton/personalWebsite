@@ -258,7 +258,8 @@ a:hover img {
   align-items: center; /* Center the grid items vertically */
   margin-top: 2vh;
   position: relative; /* Position the container relative to the viewport */
-  padding: 20px; /* Add some padding to the container */
+  padding: 20px;
+  padding-bottom: 75px;
 }
 
 .item {
