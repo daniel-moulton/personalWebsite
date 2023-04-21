@@ -125,7 +125,6 @@ body {
 }
 
 .homeContainer,
-.projectsContainer,
 .footer {
     width: auto;
     height: 100vh;
@@ -245,7 +244,6 @@ a:hover img {
 .projectsContainer {
     background-color: #000;
     position: relative;
-    height: 100vh;
 }
 
 #projectsText {
@@ -260,20 +258,16 @@ a:hover img {
 
 #projectsGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     /* 2 columns with equal width */
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     /* 2 rows with equal height */
     gap: 1vw;
     /* spacing between the grid items */
-    max-width: 80%;
     /* set the maximum width of the container */
-    max-height: 80%;
     /* set the maximum height of the container */
-    overflow: hidden;
     /* hide any content that exceeds the container's size */
     /* center the four divs */
-    margin: auto;
     margin-top: 2vh;
     /* set the background color of the container */
     /* position the container relative to the viewport */
@@ -283,9 +277,9 @@ a:hover img {
 
 .item {
     background-color: #fff;
-    max-width: 50vw;
-    max-height: 30vh;
     position: relative;
+    width: 400px;
+    height: 400px;
 }
 
 .item img {
@@ -397,6 +391,10 @@ a:hover img {
 /* ------------------- */
 /* Contact Section CSS */
 /* ------------------- */
+
+.contactContainer{
+    min-height: 100vh;
+}
 
 .contactContainer p {
     /* Move the text to the right */
