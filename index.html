@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <!-- Google tag (gtag.js) -->
-        <script async
+        <script
+            async
             src="https://www.googletagmanager.com/gtag/js?id=G-H3H1XBYXTE"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-            gtag('config', 'G-H3H1XBYXTE');
-        </script>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			gtag("config", "G-H3H1XBYXTE");
+		</script>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Daniel Moulton</title>
-        <link rel="stylesheet"
+        <link
+            rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+            crossorigin="anonymous"
+            />
+        <link rel="stylesheet" href="style.css" />
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <link rel="icon" type="image/x-icon" href="src/images/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="src/images/favicon.ico" />
     </head>
 
     <body>
         <!-- Home Section -->
         <section id="home" data-color="#fff" class="homeContainer">
-
             <!-- Menu Overlay -->
             <div id="navbar" class="overlay">
-
                 <!-- Close button for overlay -->
-                <a href="javascript:void(0)" class="closebtn menuInteract"
+                <a
+                    href="javascript:void(0)"
+                    class="closebtn menuInteract"
                     onclick="closeNav() ">&times;</a>
 
                 <!-- Menu content -->
@@ -46,7 +50,11 @@
             </div>
             <span onclick="openNav()" id="openMenu" class="menuInteract">&#9776;</span>
             <!-- Video Background -->
-            <video src="src/videos/darkDustParticles.mp4" autoplay loop muted
+            <video
+                src="src/videos/darkDustParticles.mp4"
+                autoplay
+                loop
+                muted
                 poster="src/images/darkDustParticlesPoster.png"
                 id="backgroundVideo"
                 playbackRate="0.5"></video>
@@ -56,62 +64,85 @@
                 <p>Hi, I'm Daniel Moulton.</p>
                 <p>Welcome to my website!</p>
                 <a id="aboutArrow" class="downArrow" href="#about">
-                    <img src="src/images/downArrowWhite.svg">
+                    <img src="src/images/downArrowWhite.svg" alt="Down arrow"/>
                 </a>
             </div>
         </section>
 
         <!-- About Me Section-->
         <section id="about" data-color="#000" class="aboutContainer">
-            <h1 id="aboutHeader"> About Me </h1>
+            <h1 id="aboutHeader">About Me</h1>
             <div id="aboutImage">
-                <img src="src/images/Me.jpg" alt="Daniel Moulton">
+                <img src="src/images/Me.jpg" alt="Daniel Moulton" />
             </div>
             <div id="aboutText">
-                <p>I am a second-year Computer Science student at the
-                    University of Exeter, excited to start a 13-month
-                    software engineering placement with Hewlett Packard
-                    Enterprise (HPE) in July.</p>
-                <p>As a highly motivated and hardworking individual, I'm deeply
+                <p>
+                    I am a second-year Computer Science student at the
+                    University of
+                    Exeter, excited to start a 13-month software engineering
+                    placement
+                    with Hewlett Packard Enterprise (HPE) in July.
+                </p>
+                <p>
+                    As a highly motivated and hardworking individual, I'm deeply
                     passionante about technology and its transformative impact
-                    on our world. I am keen to gain practical experience in the
-                    industry and apply the knowledge and skills I've honed
-                    throughout my academic journey to real-world projects.</p>
-                <p>Below, you'll find a selection of my projects, as well as a
-                    contact form should you have any questions or opportunities
-                    you think I'd be suiteable for. I am open to exploring all
-                    aspects of computer science and look forward to connecting
-                    with you.</p>
-                <p>My technical skills include programming languages such as
-                    Python, Java, C, C++, HTML, CSS, and JavaScript. I have
-                    experience working with the Django framework, version
-                    control using Git, as well as Agile methodologies.</p>
+                    on our
+                    world. I am keen to gain practical experience in the
+                    industry and
+                    apply the knowledge and skills I've honed throughout my
+                    academic
+                    journey to real-world projects.
+                </p>
+                <p>
+                    Below, you'll find a selection of my projects, as well as a
+                    contact
+                    form should you have any questions or opportunities you
+                    think I'd be
+                    suiteable for. I am open to exploring all aspects of
+                    computer science
+                    and look forward to connecting with you.
+                </p>
+                <p>
+                    My technical skills include programming languages such as
+                    Python,
+                    Java, C, C++, HTML, CSS, and JavaScript. I have experience
+                    working
+                    with the Django framework, version control using Git, as
+                    well as Agile
+                    methodologies.
+                </p>
             </div>
 
             <a id="projectsArrow" class="downArrow" href="#projects">
-                <img src="src/images/downArrowBlack.svg">
+                <img src="src/images/downArrowBlack.svg" />
             </a>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" data-color="#fff" class="projectsContainer">
             <div id="projectsText">
-                <h1> Projects </h1>
-                <br>
-                <p> Here are some of my projects. You can find more on my <a
-                        href="https://github.com/daniel-moulton"> GitHub</a>.</p>
-                <p>Hover over each for more information and a link to the source
-                    code!</p>
+                <h1>Projects</h1>
+                <br />
+                <p>
+                    Here are some of my projects. You can find more on my
+                    <a href="https://github.com/daniel-moulton"> GitHub</a>.
+                </p>
+                <p>
+                    Hover over each for more information, a link to the
+                    source code, and for some a link to a live demo!
+                </p>
             </div>
             <div id="projectsGrid">
                 <div class="item">
-                    <img src="src/images/siteHomepage.jpg" alt="Daniel Moulton">
+                    <img
+                        src="src/images/siteHomepage.jpg"
+                        alt="Website Project
+                        Image"/>
                     <div class="projectHover">
                         <div class="hoverText">
                             <p>Personal Website</p>
-                            <p>Developed by me to act as a portfolio for future
-                                projects as well as to help build my online
-                                presence.</p>
+                            <p>Developed by me as a test to see if I could create my own website from the ground up, including the design and deployment to a server. Acts as a portfolio for my projects as well as a chance for me to build my online presence. </p>
+                            <p>Website is hosted on my own Virtual Private Server (VPS), and secured with SSL certificates.</p>
                             <p>Languages used: HTML, CSS, JS</p>
                         </div>
                         <div class="buttonContainer">
@@ -122,15 +153,19 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="src/images/tetrisProjectImage.jpeg" alt="Daniel
-                        Moulton">
+                    <img
+                        src="src/images/tetrisProjectImage.jpeg"
+                        alt="Tetris Project Image"
+                        />
                     <div class="projectHover">
                         <div class="hoverText">
-                            <p>Tetris LAMP Stack Web Server </p>
-                            <p>A complete Tetris game in JS, with a working
-                                leaderboard and regestration system.</p>
+                            <p>Tetris LAMP Stack Web Server</p>
+                            <p>
+                                A complete Tetris game in JS, with a working
+                                leaderboard and regestration system.
+                            </p>
                             <p>Deployed on a LAMP stack web server to an Azure
-                                VM </p>
+                                VM</p>
                             <p>Languages used: HTML, CSS, JS, PHP, MySQL</p>
                         </div>
                         <div class="buttonContainer">
@@ -142,17 +177,104 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="src/images/cardGameProjectImage.jpg" alt="Daniel
-                        Moulton">
+                    <img src="src/images/crosswordImageCropped.png"
+                        alt="Crossword Project Image" style="object-fit: fill;"/>
+                    <div class="projectHover">
+                        <div class="hoverText">
+                            <p>Crossword Game</p>
+                            <p>
+                                Created a mobile-friendly crossword game that
+                                allows users to solve a dynamically generated
+                                crossword.
+                            </p>
+                            <p>
+                                Crossword is generated using a backtracking
+                                algorithm.
+                            </p>
+                            <p>
+                                User friendly interface that auto focuses onto
+                                the next logical cell when typing and deleting.
+                            </p>
+                            <p>Languages used: HTML, CSS, JavaScript</p>
+                        </div>
+                        <div class="buttonContainer">
+                            <a
+                                href="https://github.com/daniel-moulton/crosswordGame">View
+                                Project</a>
+                            <a href="/crossword/crossword.html">Play Game</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="src/images/streathamQuest.png"
+                        alt="Streatham Quest Project Image"/>
+                    <div class="projectHover">
+                        <div class="hoverText">
+                            <p>Streatham Quest!</p>
+                            <p>
+                                An interactive game promoting sustainability to be played around the University of Exeter's Streatham Campus.
+                            </p>
+                            <p>
+                                Users go to different buildings on campus where they can complete a minigame to earn xp and climb the leaderboard.
+                            </p>
+                            <p>
+                                Built using the Django framework and developed in a group using the agile methodology.
+                            </p>
+                            <p>Languages used: HTML, CSS, JavaScript, Python</p>
+                        </div>
+                        <div class="buttonContainer">
+                            <a
+                                href="https://github.com/daniel-moulton/crosswordGame">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="src/images/newsAppImage.png"
+                        alt="News App Project Image" style="object-fit: contain; background-color: #000"/>
+                    <div class="projectHover">
+                        <div class="hoverText">
+                            <p>Android News Application</p>
+                            <p>
+                                Created an Android news application that allows
+                                users to view news articles from a variety of
+                                sources.
+                            </p>
+                            <p>
+                                Users can search for articles, and set a
+                                favourite search query for quick access.
+                            </p>
+                            <p>
+                                Uses a news API to retrieve articles and displays them in a recycler view.
+                            </p>
+                            <p>Languages used: Java, XML</p>
+                        </div>
+                        <div class="buttonContainer">
+                            <a
+                                href="https://github.com/daniel-moulton/crosswordGame">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img
+                        src="src/images/cardGameProjectImage.jpg"
+                        alt="Card Game Project Image"
+                        />
                     <div class="projectHover">
                         <div class="hoverText">
                             <p>Multi-Threaded Card Simulation</p>
-                            <p>A multi-threaded card simulation where players
-                                try to get four of the same card first.</p>
+                            <p>
+                                A multi-threaded card simulation where players
+                                try to get four of the same card first.
+                            </p>
                             <p>Worked according to the pair programming
                                 methodology.</p>
-                            <p>Implemented extensive JUnit testing, JaCoCo code
-                                coverage and a JavaDoc.</p>
+                            <p>
+                                Implemented extensive JUnit testing, JaCoCo code
+                                coverage and a
+                                JavaDoc.
+                            </p>
                             <p>Languages used: Java</p>
                         </div>
                         <div class="buttonContainer">
@@ -163,17 +285,25 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="src/images/covidProjectImage.jpg" alt="Daniel
-                        Moulton">
+                    <img
+                        src="src/images/covidProjectImage.jpg"
+                        alt="Covid Dashboard Project Image"
+                        />
                     <div class="projectHover">
                         <div class="hoverText">
                             <p>Covid-19 API Dashboard Web Application</p>
-                            <p>Built a flask web app to allow users to view
-                                up-to-date covid information for a
-                                region and country of choice as well as view
-                                news articles matching user parameters</p>
-                            <p>Accessed data using APIs for
-                                Public Health England and NewsAPI.org</p>
+                            <p>
+                                Built a flask web app to allow users to view
+                                up-to-date covid
+                                information for a region and country of choice
+                                as well as view
+                                news articles matching user parameters
+                            </p>
+                            <p>
+                                Accessed data using APIs for Public Health
+                                England and
+                                NewsAPI.org
+                            </p>
                             <p>Languages used: Python</p>
                         </div>
                         <div class="buttonContainer">
@@ -183,79 +313,113 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <a id="contactArrow" class="downArrow" href="#contact">
-                <img src="src/images/downArrowWhite.svg">
-            </a>
-        </section>
-
-        <!-- Contact Me Section -->
-        <section id="contact" data-color="#000" class="contactContainer">
-            <div id="contactText">
-                <h1> Contact Me </h1>
-                <p> If you would like to get in touch with me, please use the
-                    form below. </p>
-            </div>
-            <div id="contactForm">
-                <form id="fs-frm" name="simple-contact-form"
-                    accept-charset="utf-8"
-                    action="https://formsubmit.co/34f5ab6b2f608526a1ce280347f4323d"
-                    method="post">
-                    <label for="full-name">Full Name</label>
-                    <input type="text" name="name" id="full-name"
-                        placeholder="First and Last" required="">
-
-                    <label for="email-address">Email Address</label>
-                    <input type="email" name="email" id="email-address"
-                        placeholder="email@domain.tld" required="">
-
-                    <label for="message">Message</label>
-                    <textarea rows="3" name="message" id="message"
-                        placeholder="Please enter your message here"
-                        required=""></textarea>
-
-                    <input type="hidden" name="_subject" id="email-subject"
-                        value="Contact Form Submission">
-
-                    <input id="contactFormSubmit" type="submit" value="Submit">
-                </form>
-            </div>
-
-            <!-- Footer -->
-            <section id="footer">
-                <div id="socials">
-                    <a href="https://www.linkedin.com/in/daniel-p-moulton/"
-                        target="_blank">
-                        <img src="src/images/icons8LinkedIn.png" alt="LinkedIn">
-                    </a>
-                    <a href="https://github.com/daniel-moulton" target="_blank">
-                        <img src="src/images/icons8Github.png" alt="GitHub">
-                    </a>
-                    <a href="https://www.instagram.com/dan_moulton/"
-                        target="_blank">
-                        <img src="src/images/icons8Instagram.png"
-                            alt="Instagram">
-                    </a>
-                    <a href="https://twitter.com/dan_moulton" target="_blank">
-                        <img src="src/images/icons8Twitter.png" alt="Twitter">
-                    </a>
-                </div>
-                <p>© 2022 Daniel Moulton | Check out my friend <a
-                        href="https://bahpu.co/" style="color: #000;
-                        text-decoration: underline">Bahpu</a></p>
+                <a id="contactArrow" class="downArrow" href="#contact">
+                    <img src="src/images/downArrowWhite.svg" />
+                </a>
             </section>
-        </section>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <script src="index.js"></script>
-    </body>
-</html>
+
+            <!-- Contact Me Section -->
+            <section id="contact" data-color="#000" class="contactContainer">
+                <div id="contactText">
+                    <h1>Contact Me</h1>
+                    <p>
+                        If you would like to get in touch with me, please use
+                        the
+                        form below.
+                    </p>
+                </div>
+                <div id="contactForm">
+                    <form
+                        id="fs-frm"
+                        name="simple-contact-form"
+                        accept-charset="utf-8"
+                        action="https://formsubmit.co/34f5ab6b2f608526a1ce280347f4323d"
+                        method="post">
+                        <label for="full-name">Full Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="full-name"
+                            placeholder="First and Last"
+                            required=""
+                            />
+
+                        <label for="email-address">Email Address</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email-address"
+                            placeholder="email@domain.tld"
+                            required=""
+                            />
+
+                        <label for="message">Message</label>
+                        <textarea
+                            rows="3"
+                            name="message"
+                            id="message"
+                            placeholder="Please enter your message here"
+                            required=""></textarea>
+
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            id="email-subject"
+                            value="Contact Form Submission"
+                            />
+
+                        <input id="contactFormSubmit" type="submit"
+                            value="Submit"
+                            />
+                    </form>
+                </div>
+
+                <!-- Footer -->
+                <section id="footer">
+                    <div id="socials">
+                        <a
+                            href="https://www.linkedin.com/in/daniel-p-moulton/"
+                            target="_blank">
+                            <img src="src/images/icons8LinkedIn.png"
+                                alt="LinkedIn"
+                                />
+                        </a>
+                        <a href="https://github.com/daniel-moulton"
+                            target="_blank">
+                            <img src="src/images/icons8Github.png" alt="GitHub"
+                                />
+                        </a>
+                        <a href="https://www.instagram.com/dan_moulton/"
+                            target="_blank">
+                            <img src="src/images/icons8Instagram.png"
+                                alt="Instagram" />
+                        </a>
+                        <a href="https://twitter.com/dan_moulton"
+                            target="_blank">
+                            <img src="src/images/icons8Twitter.png"
+                                alt="Twitter" />
+                        </a>
+                    </div>
+                    <p>
+                        © 2022 Daniel Moulton | Check out my friend
+                        <a
+                            href="https://bahpu.co/"
+                            style="color: #000; text-decoration: underline">Bahpu</a>
+                    </p>
+                </section>
+            </section>
+            <script
+                src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+            <script src="index.js"></script>
+        </body>
+    </html>
