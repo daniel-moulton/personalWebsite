@@ -1,5 +1,5 @@
 body{
-    background-color: #c8b7a6;
+    background-color: #c86b6b;
 }
 
 #crossword-container {
@@ -37,13 +37,15 @@ td {
     color: #999;
 }
 
-#crossword-buttons {
+#crossword-buttons,
+#crossword-themes-buttons {
     display: flex;
     justify-content: center;
     margin: 20px 0;
 }
 
-#crossword-buttons button {
+#crossword-buttons button,
+#crossword-themes-buttons button {
     margin: 10px;
     padding: 5px 10px;
     font-size: 16px;
@@ -53,11 +55,13 @@ td {
     cursor: pointer;
 }
 
-#crossword-buttons button:hover {
+#crossword-buttons button:hover,
+#crossword-themes-buttons button:hover {
     background-color: #eee;
 }
 
-#crossword-score {
+#crossword-score,
+#play-again-prompt {
     display: none;
     justify-content: center;
     margin-bottom: 20px;
