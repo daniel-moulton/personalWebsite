@@ -8,7 +8,12 @@
         <link rel="stylesheet" href="crossword.css">
     </head>
     <body>
-
+        <div id="crossword-themes-buttons">
+            <!-- Should be three buttons in a row, one sayuing environment, one saying technology and one saying geography -->
+            <button id="crossword-theme-environment" onClick="setTheme('environment')">Environment</button>
+            <button id="crossword-theme-technology" onClick="setTheme('technology')">Technology</button>
+            <button id="crossword-theme-geography" onClick="setTheme('geography')">Geography</button>
+        </div>
         <div id="crossword-container">
             <table id="crossword-grid"></table>
         </div>
@@ -20,6 +25,7 @@
         <div id="crossword-score">
             <h3>Score: <span id="crossword-score-value">0</span></h3>
         </div>
+        <h3 id="play-again-prompt">Choose a category to play again!</h3>
         <div id="crossword-hints">
             <div id="crossword-hints">
                 <div id="crossword-hints-across" class="d-flex flex-column

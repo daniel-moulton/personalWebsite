@@ -5,12 +5,18 @@ const downDiv = document.getElementById('crossword-hints-down');
 const buttonsDiv = document.getElementById('crossword-buttons');
 const scoreDiv = document.getElementById('crossword-score');
 const outcomeDiv = document.getElementById('crossword-outcome');
+const playAgainPrompt = document.getElementById('play-again-prompt');
 
 /* Set size of grid, number of words to place in the grid,
 and the words to place */
 const gridSize = 12;
 const wordsToPlace = 6;
-const wordsDict = {
+const themeColours = {
+  'environment': '#b5c6a2',
+  'technology': '#c86b6b',
+  'geography': '#6b8cc8',
+}
+const environmentWordsDict = {
   'recycling': 'Reusing waste materials to create new products',
   'sustainable': 'Eco-friendly practices for long-term resource use',
   'renewable': 'Energy source that can be replenished naturally',
@@ -29,11 +35,49 @@ const wordsDict = {
   'biofuel': 'Renewable energy derived from organic materials, like plants',
   'endangered': 'Species at risk of extinction due to habitat loss or other factors',
 };
+const technologyWordsDict = {
+  'javascript': 'Popular programming language used in web browsers',
+  'algorithm': 'Set of instructions for solving a problem',
+  'function': 'Reusable block of code that performs a specific task',
+  'firewall': 'Security system that monitors and controls network traffic',
+  'encryption': 'Process of encoding data to prevent unauthorized access',
+  'malware': 'Software designed to damage or disable computer systems',
+  'debugging': 'Process of finding and fixing errors in code',
+  'database': 'Collection of data organized for easy access',
+  'server': 'Computer that provides data to other computers',
+  'software': 'Programs and other operating information used by a computer',
+  'hardware': 'Physical components of a computer system',
+  'internet': 'Global network of computers providing information and communication',
+  'cybersecurity': 'Protection of computer systems from theft or damage',
+  'artificial': 'Intelligence demonstrated by machines',
+  'network': 'Group of computers connected to share information',
+  'programmer': 'Person who writes code to create software',
+};
+const geographyWordsDict = {
+  'everset': 'Highest mountain in the world',
+  'amazon': 'Largest river in the world',
+  'russia': 'Largest country in the world by area',
+  'canada': 'Second largest country in the world by area',
+  'nile': 'Longest river in the world',
+  'budapest': 'Capital of Hungary',
+  'tokyo': 'Capital of Japan',
+  'australia': 'Smallest continent in the world',
+  'china': 'Most populated country in the world',
+  'antarctica': 'Largest desert in the world',
+  'oman': 'Only country that starts with the letter O',
+  'bangkok': 'Capital of Thailand',
+  'africa': 'Only continent that spans all four hemispheres',
+  'greenland': 'Largest island in the world',
+  'kazakhstan': 'Largest landlocked country in the world',
+};
+
+
 
 let usableWords = [];
 let placedWords = [];
 let currentOrientation;
 let userWon = false;
+let currentTheme='technology';
 
 // Create a 2d array of size gridSize x gridSize to store the value of each cell
 const gridValues = new Array(gridSize);
@@ -113,6 +157,21 @@ function sortWords(words) {
  */
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+function setTheme(theme) {
+  currentTheme = theme;
+  let colour = themeColours[theme];
+  // Set the background colour of the page
+  document.body.style.backgroundColor = colour;
+  deleteGrid();
+  deleteHints();
+  createGrid();
+  generateGrid();
+  buttonsDiv.style.display='flex';
+  scoreDiv.style.display='none';
+  playAgainPrompt.style.display='none';
+
 }
 
 /**
@@ -645,9 +704,9 @@ function displayHints() {
   for (let i = 0; i < placedWords.length; i++) {
     const word = placedWords[i].word;
     const orientation = placedWords[i].orientation;
-    const hint = wordsDict[word];
+    const hint = getWordsDictByTheme(currentTheme)[word];
 
-    // Create a hint div element and set its content
+    // Create a hint div element and set its content.
     const hintDiv = document.createElement('div');
     hintDiv.innerText = i + 1 + ': ' + hint + ' (' + word.length + ')';
 
@@ -740,7 +799,7 @@ function checkGrid() {
     }
   }
 
-  // Finalize the
+  // Finalize the grid
   finaliseGrid();
 }
 
@@ -779,6 +838,23 @@ function finaliseGrid() {
 
   // Hide the buttons div
   buttonsDiv.style.display = 'none';
+}
+
+function deleteGrid(){
+  grid.innerHTML = '';
+}
+
+function deleteHints(){
+  // Remove any divs within acrossDiv and downDiv
+  acrossDiv.innerHTML = '';
+  downDiv.innerHTML = '';
+  // Add h3 elements to acrossDiv and downDiv
+  const acrossHeading = document.createElement('h3');
+  acrossHeading.innerText = 'Across:';
+  acrossDiv.appendChild(acrossHeading);
+  const downHeading = document.createElement('h3');
+  downHeading.innerText = 'Down:';
+  downDiv.appendChild(downHeading);
 }
 
 /**
@@ -830,6 +906,8 @@ function calculateScore(userSolved = true) {
   scoreDiv.style.display = 'flex';
   // Make text bigger
   scoreDiv.style.fontSize = '24px';
+  playAgainPrompt.style.display = 'flex';
+  playAgainPrompt.style.fontSize = '24px';
 
 
   if (correctWords === placedWords.length) {
@@ -838,13 +916,29 @@ function calculateScore(userSolved = true) {
 
 }
 
+function getWordsDictByTheme(theme) {
+  switch (theme) {
+    case 'environment':
+      return environmentWordsDict;
+    case 'technology':
+      return technologyWordsDict;
+    case 'geography':
+      return geographyWordsDict;
+    default:
+      return {};
+  }
+}
+
+
 
 /**
  * Generates the crossword grid by placing words, formatting the grid, adding hint numbers, event listeners, and displaying hints.
  */
 function generateGrid() {
+  // Make sure grid is initialized as empty
+  resetGrid();
   // Sort the words based on their lengths
-  usableWords = sortWords(Object.keys(wordsDict));
+  usableWords = sortWords(Object.keys(getWordsDictByTheme(currentTheme)));
 
   // Place the first word in the grid
   placeFirstWord();
