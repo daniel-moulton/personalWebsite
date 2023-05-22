@@ -52,6 +52,8 @@ const technologyWordsDict = {
   'artificial': 'Intelligence demonstrated by machines',
   'network': 'Group of computers connected to share information',
   'programmer': 'Person who writes code to create software',
+  'bluetooth': 'Wireless technology for exchanging data over short distances',
+  'cloud': 'Internet-based storage for data and applications',
 };
 const geographyWordsDict = {
   'everset': 'Highest mountain in the world',
@@ -69,6 +71,10 @@ const geographyWordsDict = {
   'africa': 'Only continent that spans all four hemispheres',
   'greenland': 'Largest island in the world',
   'kazakhstan': 'Largest landlocked country in the world',
+  'summit': 'Highest point of a hill or mountain',
+  'oasis': 'Small fertile area in a desert',
+  'archipelago': 'Group of islands',
+  'peninsula': 'Piece of land surrounded by water on three sides',
 };
 
 
