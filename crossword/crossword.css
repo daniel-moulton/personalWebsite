@@ -102,11 +102,14 @@ ul {
 }
 
 #back-arrow {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     font-size: 30px;
     color: #fff;
     cursor: pointer;
     text-decoration: none;
+    transition: transform 0.5s ease-in-out;
+}
+
+#back-arrow:hover {
+    color: #eee;
+    transform: scale(1.3);
 }
