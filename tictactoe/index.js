@@ -1,7 +1,7 @@
 const playerTurn = document.getElementById('playerTurn');
-console.log(playerTurn);
+
 const gameState = document.getElementById('winner');
-console.log(gameState);
+
 let gameRunning = true;
 let currentPlayer = "X";
 let startingPlayer = currentPlayer;

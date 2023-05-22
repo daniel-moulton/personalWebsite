@@ -58,15 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startButton.addEventListener('click', () => {
         resetTetrominos2();
-        console.log('Tetrominos');
-        console.log(tetrominos);
+        
+        
         let next = tetrominoGenerator();
         document.currentBlockType = next[0];
         document.currentBlock = next[1];
-        console.log("currentBlock");
-        console.log(document.currentBlock);
-        console.log("Current Block Type");
-        console.log(document.currentBlockType);
+        
+        
+        
+        
         drawTetromino();
         timer = setInterval(moveTetrominoDown, 1000);
         audio = new Audio("music.mp3");
@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function randomTetromino() {
         var tetrominoTypes = ["L", "S", "Z", "T", "O", "I", "J"];
         var randomTetromino = tetrominoTypes[Math.floor(Math.random() * tetrominoTypes.length)];
-        console.log("Random tetromino is: " + randomTetromino);
+        
         return randomTetromino
     }
 
@@ -318,8 +318,8 @@ document.addEventListener("DOMContentLoaded", () => {
         nextBlockType = randomTetromino();
         nextBlock = tetrominos.get(nextBlockType);
         document.currentRotation = 0;
-        console.log("---")
-        console.log(nextBlock);
+        
+        
         score += 1;
         document.getElementById("Score").innerHTML = score;
         var returnArray = [];
@@ -347,8 +347,8 @@ document.addEventListener("DOMContentLoaded", () => {
         stopTetromino();
         if (!(gameOver())) {
             undrawTetromino();
-            console.log("CURRENT BLOCK");
-            console.log(document.currentBlock);
+            
+            
             for (var j = 0; j < 4; j++) {
                 for (var i = 0; i < 4; i++) {
                     document.currentBlock[j][i][1]++;
@@ -357,13 +357,13 @@ document.addEventListener("DOMContentLoaded", () => {
             document.numBlocksMovedDown++;
             drawTetromino();
         }
-        console.log("d")
+        
     }
 
     function stopTetromino() {
         var cantMove = false;
         for (var i = 0; i < 4; i++) {
-            console.log(document.currentBlock)
+            
             x = document.currentBlock[document.currentRotation][i][0];
             y = document.currentBlock[document.currentRotation][i][1];
             if (squares[y + 1][x].classList.contains('taken')) {
@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let isComplete = true;
             for (var column = 0; column < 10; column++) {
                 if (!(squares[row][column].classList.contains('taken'))) {
-                    console.log("not complete");
+                    
                     isComplete = false;
                     break
                 }
