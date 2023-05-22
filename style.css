@@ -160,6 +160,7 @@ a:hover img {
     color: #000;
     position: relative;
     padding-bottom: 100px;
+    min-height: 100vh;
 }
 
 #aboutHeader {
