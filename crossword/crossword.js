@@ -1,4 +1,4 @@
-// Get the grid, across and down divs, buttons div, and score div
+// Get the grid, across and down divs, buttons div, scoreDiv, outcomeDiv, playAgainPrompt, settingsCog, and settingsMenu elements
 const grid = document.getElementById('crossword-grid');
 const acrossDiv = document.getElementById('crossword-hints-across');
 const downDiv = document.getElementById('crossword-hints-down');
@@ -6,11 +6,51 @@ const buttonsDiv = document.getElementById('crossword-buttons');
 const scoreDiv = document.getElementById('crossword-score');
 const outcomeDiv = document.getElementById('crossword-outcome');
 const playAgainPrompt = document.getElementById('play-again-prompt');
+const settingsCog = document.getElementById('settings-cog');
+const settingsMenu = document.getElementById('settings-menu');
+const gridSizeSelect = document.getElementById('grid-size-select');
+const numWordsSelect = document.getElementById('num-words-select');
+const applySettingsButton = document.getElementById('apply-settings');
+const maxDepthReachedMessage = document.getElementById('max-depth-reached-message');
 
-/* Set size of grid, number of words to place in the grid,
-and the words to place */
-const gridSize = 12;
-const wordsToPlace = 6;
+
+// Populate the selects for gridSize and numWords
+for (let i = 10; i <= 25; i++) {
+  const gridSizeOption = document.createElement('option');
+  gridSizeOption.value = i;
+  gridSizeOption.text = i;
+  gridSizeSelect.appendChild(gridSizeOption);
+}
+
+for (let i = 3; i <= 15; i++) {
+  const numWordsOption = document.createElement('option');
+  numWordsOption.value = i;
+  numWordsOption.text = i;
+  numWordsSelect.appendChild(numWordsOption);
+}
+
+// Add event listeners to the settings cog and apply settings button
+settingsCog.addEventListener('click', function () {
+  settingsMenu.style.display = (settingsMenu.style.display === 'block') ? 'none' : 'block';
+});
+
+applySettingsButton.addEventListener('click', function () {
+  gridSize = parseInt(gridSizeSelect.value);
+  wordsToPlace = parseInt(numWordsSelect.value);
+
+  console.log(gridSize, wordsToPlace + "\nNEW VALUES");
+  deleteGrid();
+  deleteHints();
+  createGrid();
+  generateGrid();
+
+  settingsMenu.style.display = 'none'; // Hide the settings menu
+});
+
+
+/* Set size of grid, number of words to place in the grid, each category's colour, and the words dicts for each category */
+var gridSize = 13;
+var wordsToPlace = 8;
 const themeColours = {
   'environment': '#b5c6a2',
   'technology': '#c86b6b',
@@ -31,9 +71,11 @@ const environmentWordsDict = {
   'solar': 'Relating to energy derived from the sun\'s rays',
   'carpooling': 'Shared vehicle rides to decrease fuel use and emissions',
   'deforestation': 'Clearing of forests for agriculture or development',
+  'biodegradable': 'Able to be broken down naturally',
   'afforestation': 'Planting trees to create new forests or woodlands',
   'biofuel': 'Renewable energy derived from organic materials, like plants',
   'endangered': 'Species at risk of extinction due to habitat loss or other factors',
+  'extinct': 'Species that no longer exists',
 };
 const technologyWordsDict = {
   'javascript': 'Popular programming language used in web browsers',
@@ -83,13 +125,8 @@ let usableWords = [];
 let placedWords = [];
 let currentOrientation;
 let userWon = false;
-let currentTheme='technology';
-
-// Create a 2d array of size gridSize x gridSize to store the value of each cell
-const gridValues = new Array(gridSize);
-for (let i = 0; i < gridSize; i++) {
-  gridValues[i] = new Array(gridSize);
-}
+let currentTheme = 'technology';
+let gridValues = [];
 
 // Dictionary storing each orientation and how many times it has been used
 let orientations = {
@@ -106,6 +143,7 @@ generateGrid();
  */
 function createGrid() {
   // Iterate through the number of rows based on gridSize
+  console.log(gridSize);
   for (let i = 0; i < gridSize; i++) {
     // Create a new table row element
     const row = document.createElement('tr');
@@ -121,6 +159,11 @@ function createGrid() {
 
     // Append the row to the grid (table) element
     grid.appendChild(row);
+  }
+  // Create a 2d array of size gridSize x gridSize to store the value of each cell
+  gridValues = new Array(gridSize);
+  for (let i = 0; i < gridSize; i++) {
+    gridValues[i] = new Array(gridSize);
   }
 }
 
@@ -170,13 +213,13 @@ function setTheme(theme) {
   let colour = themeColours[theme];
   // Set the background colour of the page
   document.body.style.backgroundColor = colour;
+  buttonsDiv.style.display = 'flex';
+  scoreDiv.style.display = 'none';
+  playAgainPrompt.style.display = 'none';
   deleteGrid();
   deleteHints();
   createGrid();
   generateGrid();
-  buttonsDiv.style.display='flex';
-  scoreDiv.style.display='none';
-  playAgainPrompt.style.display='none';
 
 }
 
@@ -846,11 +889,11 @@ function finaliseGrid() {
   buttonsDiv.style.display = 'none';
 }
 
-function deleteGrid(){
+function deleteGrid() {
   grid.innerHTML = '';
 }
 
-function deleteHints(){
+function deleteHints() {
   // Remove any divs within acrossDiv and downDiv
   acrossDiv.innerHTML = '';
   downDiv.innerHTML = '';
@@ -935,12 +978,34 @@ function getWordsDictByTheme(theme) {
   }
 }
 
-
+function toggleMaxDepthReached(maxDepthReached) {
+  maxDepthReached ? (
+    maxDepthReachedMessage.style.display = 'flex',
+    buttonsDiv.style.display = 'none',
+    acrossDiv.style.display = 'none',
+    downDiv.style.display = 'none',
+    grid.style.display = 'none'
+  ) : (
+    maxDepthReachedMessage.style.display = 'none',
+    buttonsDiv.style.display = 'flex',
+    acrossDiv.style.display = 'block',
+    downDiv.style.display = 'block',
+    grid.style.display = 'table'
+  );
+}
 
 /**
  * Generates the crossword grid by placing words, formatting the grid, adding hint numbers, event listeners, and displaying hints.
  */
-function generateGrid() {
+function generateGrid(depth=0) {
+  const maxDepth = 1000;
+
+  if (depth > maxDepth) {
+    console.log("max depth reached");
+    toggleMaxDepthReached(true);
+    return;
+  }
+
   // Make sure grid is initialized as empty
   resetGrid();
   // Sort the words based on their lengths
@@ -954,10 +1019,12 @@ function generateGrid() {
 
   // If not all words are placed, retry the grid generation
   if (placedWords.length !== wordsToPlace) {
+    console.log("failed");
     resetGrid();
-    generateGrid();
+    generateGrid(depth+1);
     return;
   }
+  toggleMaxDepthReached(false);
 
   // Format the grid visually
   formatGrid();

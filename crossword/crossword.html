@@ -5,14 +5,38 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Crossword Game</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" href="crossword.css">
     </head>
     <body>
-        <a href="/" id="back-arrow">&#8592;</a>
+        <div id="crossword-navbar">
+            <a href="/" id="back-arrow">&#8592;</a>
+            <div id="settings-wrapper">
+                <div id="settings-cog">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div id="settings-menu">
+                    <h3>Settings</h3>
+                    <p>Customise the grid size and number of words below!</p>
+                    <p>Default Grid Size: 13</p>
+                    <p>Default Number of Words: 8</p>
+                    <p>Unexpected results might occur if using extreme combinations of both! You've been warned!</p>
+                    <label for="grid-size-select">Grid Size:</label>
+                    <select id="grid-size-select"></select>
+                    <label for="num-words-select">Number of Words:</label>
+                    <select id="num-words-select"></select>
+                    <button id="apply-settings">Apply</button>
+                </div>
+            </div>
+        </div>
         <div id="crossword-themes-buttons">
-            <button id="crossword-theme-environment" onClick="setTheme('environment')">Environment</button>
-            <button id="crossword-theme-technology" onClick="setTheme('technology')">Technology</button>
-            <button id="crossword-theme-geography" onClick="setTheme('geography')">Geography</button>
+            <button id="crossword-theme-environment"
+                onClick="setTheme('environment')">Environment</button>
+            <button id="crossword-theme-technology"
+                onClick="setTheme('technology')">Technology</button>
+            <button id="crossword-theme-geography"
+                onClick="setTheme('geography')">Geography</button>
         </div>
         <div id="crossword-container">
             <table id="crossword-grid"></table>
@@ -37,6 +61,9 @@
                     <h3>Down:</h3>
                 </div>
             </div>
+        </div>
+        <div id="max-depth-reached-message">
+            <h3>Maximum depth reached! Try again with a different grid size or number of words!</h3>
         </div>
         <script src="crossword.js"></script>
 
