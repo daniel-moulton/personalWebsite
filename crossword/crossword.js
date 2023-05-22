@@ -746,7 +746,7 @@ function clearGrid() {
  */
 function solveGrid() {
   // Confirm user's intention to solve the grid
-  const confirmSolve = confirm('Are you sure you want to solve the grid?\nYou won\'t earn any xp if you do!');
+  const confirmSolve = confirm('Are you sure you want to solve the grid?\n');
   if (!confirmSolve) {
     return;
   }
