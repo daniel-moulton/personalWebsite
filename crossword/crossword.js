@@ -718,20 +718,128 @@ function addCellEventLisenters() {
         // Check if the pressed key is 'Backspace'
         if (e.key === 'Backspace') {
 
+          // Have to remove hint numbers before checking if the cell is empty as hint numbers will mean innerText is not empty
+          removeHintNumbers();
+
           // If the current cell is empty
           if (currentCell.innerText === '') {
 
-            // If there is a previous cell in the same row and it is editable
-            if (currentCell.cellIndex - 1 >= 0 &&
-              grid.rows[i].cells[i - 1].contentEditable === 'true') {
-              // Focus the previous cell in the same row
+            // // If there is a previous cell in the same row and it is editable
+            // if (currentCell.cellIndex - 1 >= 0 &&
+            //   grid.rows[i].cells[i - 1].contentEditable === 'true') {
+            //   // Focus the previous cell in the same row
+            //   grid.rows[i].cells[j - 1].focus();
+            // } else {
+            //   // If there is a row above and the cell in the above row is editable
+            //   if (currentCell.parentNode.rowIndex - 1 >= 0 &&
+            //     grid.rows[i - 1].cells[j].contentEditable === 'true') {
+            //     // Focus the cell in the above row
+            //     grid.rows[i - 1].cells[j].focus();
+            //   }
+            // }
+
+            let currentCellX = currentCell.cellIndex;
+            let currentCellY = currentCell.parentNode.rowIndex;
+
+            let cellAbove = (currentCellY - 1 >= 0) ? grid.rows[currentCellY - 1].cells[currentCellX] : null;
+            let cellLeft = (currentCellX - 1 >= 0) ? grid.rows[currentCellY].cells[currentCellX - 1] : null;
+            // let cellBelow = grid.rows[i + 1].cells[j];
+            // let cellRight = grid.rows[i].cells[j + 1];
+            console.log(cellAbove?.contentEditable);
+            console.log(cellLeft?.contentEditable);
+            console.log(currentCellX, currentCellY);
+            // Logic for cells belonging to a single word
+            // If we are on the first column, just focus up as can't be cell left
+            if (currentCellX === 0) {
+              grid.rows[i - 1].cells[j].focus();
+            }
+            // If we are on the first row, just focus left as can't be cell above
+            else if (currentCellY === 0) {
               grid.rows[i].cells[j - 1].focus();
-            } else {
-              // If there is a row above and the cell in the above row is editable
-              if (currentCell.parentNode.rowIndex - 1 >= 0 &&
-                grid.rows[i - 1].cells[j].contentEditable === 'true') {
-                // Focus the cell in the above row
-                grid.rows[i - 1].cells[j].focus();
+            }
+            // If left exists but not up
+            else if (cellLeft &&
+              cellAbove.contentEditable !== 'true' &&
+              cellLeft.contentEditable === 'true') {
+              // Focus the cell to the left
+              grid.rows[i].cells[j - 1].focus();
+              console.log('left');
+            }
+            // Else if up exists but not left 
+            else if (cellAbove &&
+              cellLeft.contentEditable !== 'true' &&
+              cellAbove.contentEditable === 'true') {
+              // Focus the cell above
+              grid.rows[i - 1].cells[j].focus();
+              console.log('up');
+            }
+            // Logic for cells shared between two words
+            else {
+              // If empty, 0
+              // If cell doesn't exist, 1
+              // If full, 2
+              let leftEmpty = 1;
+              let upEmpty = 1;
+
+              // Check if the cell to the left exists and is empty
+              if (cellLeft) {
+                leftEmpty = (cellLeft.innerText === '') ? 0 : 2;
+              }
+              // Check if the cell above exists and is empty
+              if (cellAbove) {
+                upEmpty = (cellAbove.innerText === '') ? 0 : 2;
+              }
+
+              let sum = leftEmpty + upEmpty;
+              console.log("SUM: " + sum);
+
+              switch (sum) {
+                case 2:
+                  // Either both don't exist or one is full and one is empty
+                  // If both don't exist, do nothing
+                  // If one is full and one is empty, focus the full one
+                  if (leftEmpty === 2) {
+                    grid.rows[i].cells[j - 1].focus();
+                  }
+                  else if (upEmpty === 2) {
+                    grid.rows[i - 1].cells[j].focus();
+                  }
+                  else {
+                    // Do nothing (case where at start of two intersecting words)
+                  }
+                  break;
+                case 1:
+                  // One is empty and one doesn't exist
+                  // Go in direction of empty
+                  if (leftEmpty === 1) {
+                    // Focus up
+                    grid.rows[i - 1].cells[j].focus();
+                  } else if (upEmpty === 1) {
+                    // Focus left
+                    grid.rows[i].cells[j - 1].focus();
+                  }
+                  break;
+                case 0:
+                case 4:
+                  // Both are empty or both are full
+                  // Need to check right and down
+
+                  let cellBelow = (currentCellY + 1 < gridSize) ? grid.rows[currentCellY + 1].cells[currentCellX] : null;
+                  let cellRight = (currentCellX + 1 < gridSize) ? grid.rows[currentCellY].cells[currentCellX + 1] : null;
+
+                  // If cell to right exists and is empty, focus left
+                  if (cellRight && 
+                    grid.rows[i].cells[j + 1].contentEditable === 'true' &&
+                    grid.rows[i].cells[j + 1].innerText === '') {
+                    grid.rows[i].cells[j - 1].focus();
+                  }
+                  // If cell below exists and is empty, focus up
+                  else if (cellBelow && 
+                    grid.rows[i + 1].cells[j].contentEditable==='true' &&
+                    grid.rows[i + 1].cells[j].innerText === '') {
+                    grid.rows[i - 1].cells[j].focus();
+                  }
+
               }
             }
           } else {
@@ -739,6 +847,8 @@ function addCellEventLisenters() {
             currentCell.innerText = '';
           }
         }
+        // Update hint numbers
+        addHintNumbers();
       });
     }
   }
@@ -997,7 +1107,7 @@ function toggleMaxDepthReached(maxDepthReached) {
 /**
  * Generates the crossword grid by placing words, formatting the grid, adding hint numbers, event listeners, and displaying hints.
  */
-function generateGrid(depth=0) {
+function generateGrid(depth = 0) {
   const maxDepth = 1000;
 
   if (depth > maxDepth) {
@@ -1021,7 +1131,7 @@ function generateGrid(depth=0) {
   if (placedWords.length !== wordsToPlace) {
     console.log("failed");
     resetGrid();
-    generateGrid(depth+1);
+    generateGrid(depth + 1);
     return;
   }
   toggleMaxDepthReached(false);
