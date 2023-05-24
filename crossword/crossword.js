@@ -828,14 +828,14 @@ function addCellEventLisenters() {
                   let cellRight = (currentCellX + 1 < gridSize) ? grid.rows[currentCellY].cells[currentCellX + 1] : null;
 
                   // If cell to right exists and is empty, focus left
-                  if (cellRight && 
+                  if (cellRight &&
                     grid.rows[i].cells[j + 1].contentEditable === 'true' &&
                     grid.rows[i].cells[j + 1].innerText === '') {
                     grid.rows[i].cells[j - 1].focus();
                   }
                   // If cell below exists and is empty, focus up
-                  else if (cellBelow && 
-                    grid.rows[i + 1].cells[j].contentEditable==='true' &&
+                  else if (cellBelow &&
+                    grid.rows[i + 1].cells[j].contentEditable === 'true' &&
                     grid.rows[i + 1].cells[j].innerText === '') {
                     grid.rows[i - 1].cells[j].focus();
                   }
@@ -845,6 +845,39 @@ function addCellEventLisenters() {
           } else {
             // If the current cell is not empty, clear its content
             currentCell.innerText = '';
+          }
+        }
+        else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          // Move the focus to the next cell in the direction of the arrow key
+          e.preventDefault();
+          let currentCellX = currentCell.cellIndex;
+          let currentCellY = currentCell.parentNode.rowIndex;
+
+          switch (e.key) {
+            case 'ArrowUp':
+              let cellAbove = (currentCellY - 1 >= 0) ? grid.rows[currentCellY - 1].cells[currentCellX] : null;
+              if (cellAbove) {
+                cellAbove.focus();
+              }
+              break;
+            case 'ArrowLeft':
+              let cellLeft = (currentCellX - 1 >= 0) ? grid.rows[currentCellY].cells[currentCellX - 1] : null;
+              if (cellLeft) {
+                cellLeft.focus();
+              }
+              break;
+            case 'ArrowDown':
+              let cellBelow = (currentCellY + 1 < gridSize) ? grid.rows[currentCellY + 1].cells[currentCellX] : null;
+              if (cellBelow) {
+                cellBelow.focus();
+              }
+              break;
+            case 'ArrowRight':
+              let cellRight = (currentCellX + 1 < gridSize) ? grid.rows[currentCellY].cells[currentCellX + 1] : null;
+              if (cellRight) {
+                cellRight.focus();
+              }
+              break;
           }
         }
         // Update hint numbers
