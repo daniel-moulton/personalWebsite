@@ -8,6 +8,8 @@ const outcomeDiv = document.getElementById('crossword-outcome');
 const playAgainPrompt = document.getElementById('play-again-prompt');
 const settingsCog = document.getElementById('settings-cog');
 const settingsMenu = document.getElementById('settings-menu');
+const helpButton = document.getElementById('help-button');
+const helpMenu = document.getElementById('help-menu');
 const gridSizeSelect = document.getElementById('grid-size-select');
 const numWordsSelect = document.getElementById('num-words-select');
 const applySettingsButton = document.getElementById('apply-settings');
@@ -32,19 +34,30 @@ for (let i = 3; i <= 15; i++) {
 // Add event listeners to the settings cog and apply settings button
 settingsCog.addEventListener('click', function () {
   settingsMenu.style.display = (settingsMenu.style.display === 'block') ? 'none' : 'block';
+  if (settingsMenu.style.display === 'block') {
+    helpMenu.style.display = 'none';
+  }
 });
+
 
 applySettingsButton.addEventListener('click', function () {
   gridSize = parseInt(gridSizeSelect.value);
   wordsToPlace = parseInt(numWordsSelect.value);
 
-  console.log(gridSize, wordsToPlace + "\nNEW VALUES");
   deleteGrid();
   deleteHints();
   createGrid();
   generateGrid();
 
   settingsMenu.style.display = 'none'; // Hide the settings menu
+});
+
+// Add event listeners to the help button and help menu
+helpButton.addEventListener('click', function () {
+  helpMenu.style.display = (helpMenu.style.display === 'block') ? 'none' : 'block';
+  if (helpMenu.style.display === 'block') {
+    settingsMenu.style.display = 'none';
+  }
 });
 
 
@@ -143,7 +156,6 @@ generateGrid();
  */
 function createGrid() {
   // Iterate through the number of rows based on gridSize
-  console.log(gridSize);
   for (let i = 0; i < gridSize; i++) {
     // Create a new table row element
     const row = document.createElement('tr');
@@ -724,30 +736,12 @@ function addCellEventLisenters() {
           // If the current cell is empty
           if (currentCell.innerText === '') {
 
-            // // If there is a previous cell in the same row and it is editable
-            // if (currentCell.cellIndex - 1 >= 0 &&
-            //   grid.rows[i].cells[i - 1].contentEditable === 'true') {
-            //   // Focus the previous cell in the same row
-            //   grid.rows[i].cells[j - 1].focus();
-            // } else {
-            //   // If there is a row above and the cell in the above row is editable
-            //   if (currentCell.parentNode.rowIndex - 1 >= 0 &&
-            //     grid.rows[i - 1].cells[j].contentEditable === 'true') {
-            //     // Focus the cell in the above row
-            //     grid.rows[i - 1].cells[j].focus();
-            //   }
-            // }
-
             let currentCellX = currentCell.cellIndex;
             let currentCellY = currentCell.parentNode.rowIndex;
 
             let cellAbove = (currentCellY - 1 >= 0) ? grid.rows[currentCellY - 1].cells[currentCellX] : null;
             let cellLeft = (currentCellX - 1 >= 0) ? grid.rows[currentCellY].cells[currentCellX - 1] : null;
-            // let cellBelow = grid.rows[i + 1].cells[j];
-            // let cellRight = grid.rows[i].cells[j + 1];
-            console.log(cellAbove?.contentEditable);
-            console.log(cellLeft?.contentEditable);
-            console.log(currentCellX, currentCellY);
+
             // Logic for cells belonging to a single word
             // If we are on the first column, just focus up as can't be cell left
             if (currentCellX === 0) {
@@ -763,7 +757,6 @@ function addCellEventLisenters() {
               cellLeft.contentEditable === 'true') {
               // Focus the cell to the left
               grid.rows[i].cells[j - 1].focus();
-              console.log('left');
             }
             // Else if up exists but not left 
             else if (cellAbove &&
@@ -771,7 +764,6 @@ function addCellEventLisenters() {
               cellAbove.contentEditable === 'true') {
               // Focus the cell above
               grid.rows[i - 1].cells[j].focus();
-              console.log('up');
             }
             // Logic for cells shared between two words
             else {
@@ -791,7 +783,6 @@ function addCellEventLisenters() {
               }
 
               let sum = leftEmpty + upEmpty;
-              console.log("SUM: " + sum);
 
               switch (sum) {
                 case 2:
@@ -1150,8 +1141,8 @@ function toggleMaxDepthReached(maxDepthReached) {
 function generateGrid(depth = 0) {
   const maxDepth = 1000;
 
+  // Too many recursive calls, stop trying to generate the grid
   if (depth > maxDepth) {
-    console.log("max depth reached");
     toggleMaxDepthReached(true);
     return;
   }
@@ -1169,7 +1160,6 @@ function generateGrid(depth = 0) {
 
   // If not all words are placed, retry the grid generation
   if (placedWords.length !== wordsToPlace) {
-    console.log("failed");
     resetGrid();
     generateGrid(depth + 1);
     return;
