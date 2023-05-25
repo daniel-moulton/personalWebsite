@@ -12,6 +12,22 @@
     <body>
         <div id="crossword-navbar">
             <a href="/" id="back-arrow">&#8592;</a>
+            <div id="help-wrapper">
+                <div id="help-button">
+                    <i class="fas fa-question"></i>
+                </div>
+                <div id="help-menu">
+                    <h3>Help</h3>
+                    <p>Welcome to my crossword game!</p>
+                    <p>To get started, choose a category from the top and start playing!</p>
+                    <p>Click on a cell to start typing there or click on a hint to start typing that word.</p>
+                    <p>If you make a mistake either backspace until you get to it or use the arrow keys for easy navigation.</p>
+                    <p>Once finished, click check to check your answers, or solve to autocomplete the entire grid!</p>
+                    <p>Use the clear button to reset the grid and start again.</p>
+                    <p>Click the settings cog to customise the size of the grid and how many words are in the grid!</p>
+                    <p>Have fun!</p>
+                </div>
+            </div>
             <div id="settings-wrapper">
                 <div id="settings-cog">
                     <i class="fas fa-cog"></i>
@@ -21,7 +37,8 @@
                     <p>Customise the grid size and number of words below!</p>
                     <p>Default Grid Size: 13</p>
                     <p>Default Number of Words: 8</p>
-                    <p>Unexpected results might occur if using extreme combinations of both! You've been warned!</p>
+                    <p>Unexpected results might occur if using extreme
+                        combinations of both! You've been warned!</p>
                     <label for="grid-size-select">Grid Size:</label>
                     <select id="grid-size-select"></select>
                     <label for="num-words-select">Number of Words:</label>
@@ -63,7 +80,8 @@
             </div>
         </div>
         <div id="max-depth-reached-message">
-            <h3>Maximum depth reached! Try again with a different grid size or number of words!</h3>
+            <h3>Maximum depth reached! Try again with a different grid size or
+                number of words!</h3>
         </div>
         <script src="crossword.js"></script>
 

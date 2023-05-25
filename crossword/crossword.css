@@ -1,5 +1,6 @@
 body {
     background-color: #c86b6b;
+    margin:0;
     /* font-family: FjallaOne; */
 }
 
@@ -20,6 +21,7 @@ body {
 
 table {
     border-collapse: collapse;
+    border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 td {
@@ -113,7 +115,7 @@ ul {
     padding: 10px 20px;
     color: #fff;
     /* Transparent navbar as page colour dynamically changes */
-    background-color: rgba(0, 0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.1); 
 }
 
 #back-arrow {
@@ -121,25 +123,30 @@ ul {
     color: #fff;
     cursor: pointer;
     text-decoration: none;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     font-weight: bold;
 }
 
-#back-arrow:hover {
+#back-arrow:hover,
+#settings-cog:hover,
+#help-button:hover {
     color: #eee;
-    transform: scale(1.3);
+    transform: scale(1.5);
 }
 
-#settings-cog {
+#settings-cog,
+#help-button {
     cursor: pointer;
     font-size: 30px;
     color: #fff;
+    transition: transform 0.3s ease-in-out;
 }
 
-#settings-menu {
+#settings-menu,
+#help-menu {
     display: none;
     position: absolute;
-    top: 40px;
+    top: 56px;
     right: 0;
     width: 250px;
     padding: 10px;
@@ -150,7 +157,8 @@ ul {
     z-index: 1;
 }
 
-#settings-menu h3 {
+#settings-menu h3,
+#help-menu h3 {
     margin-top: 0;
     font-weight: normal;
 }
