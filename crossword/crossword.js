@@ -908,6 +908,13 @@ function displayHints() {
     } else {
       downDiv.appendChild(hintDiv);
     }
+    // Add a click event listener to the hint div to focus the first cell of the word 
+    hintDiv.addEventListener('click', function () {
+      // Focus the first letter of the word
+      console.table(placedWords[i]);
+      let cell = grid.rows[placedWords[i].start.y].cells[placedWords[i].start.x];
+      cell.focus();
+    });
   }
 }
 
