@@ -1,0 +1,45 @@
+body {
+    background-color: #c86b6b;
+    margin: 0;
+}
+
+#maze-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+    /* Transparent navbar as page colour dynamically changes */
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#back-arrow {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+#back-arrow:hover {
+    color: #eee;
+    transform: scale(1.5);
+}
+
+#maze-grid {
+    border-collapse: collapse;
+}
+
+#maze-grid td {
+    width: 30px;
+    height: 30px;
+}
+
+#maze-grid .path {
+    background-color: white;
+}
+
+#maze-grid .wall {
+    background-color: black;
+}
