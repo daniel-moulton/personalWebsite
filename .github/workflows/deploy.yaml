@@ -21,3 +21,4 @@ jobs:
           script: |
             cd /var/www/html
             git pull
+            docker-compose up --build -d
