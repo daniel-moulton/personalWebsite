@@ -111,7 +111,7 @@ const technologyWordsDict = {
   'cloud': 'Internet-based storage for data and applications',
 };
 const geographyWordsDict = {
-  'everset': 'Highest mountain in the world',
+  'everest': 'Highest mountain in the world',
   'amazon': 'Largest river in the world',
   'russia': 'Largest country in the world by area',
   'canada': 'Second largest country in the world by area',
